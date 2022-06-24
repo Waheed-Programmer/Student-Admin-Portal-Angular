@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-employe',
@@ -7,6 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeComponent implements OnInit {
 
+  @Input() nameData:any;
+  @Input() nameEmail:any;
+  @Input() nameAge:any;
+  @Input() objData:any;
+
+  @Output() databack = new EventEmitter<string>();
+
+  addItem(value:string){
+    debugger
+    this.databack.emit(value)
+
+  }
+  listEmploye:any=[{
+    "name":"Waheed",
+    "email":"waheedarshad239@gmail.comm",
+    "age":"21",
+  }]
+
+  update(obj:any){
+    debugger
+    this.listEmploye.push(obj);
+    return obj.name +" Insert Successfully Data"
+  }
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -12,7 +12,7 @@
      <br>    
      
       <div class="col-10 col-sm-6 col-md-6">
-          <p style="color: darkblue ; font-weight: bold;"> Add new Server and Blue Print Server</p>
+          <p style="color: darkblue ; font-weight: bold; font-size: 50px;">Employe Informations</p>
           <label>Employe Name</label>
           <input type="text" #name class="form-control" >
           <label>Employe Email</label>
@@ -20,16 +20,15 @@
           <label>Employe Age</label>
           <input type="text" #age class="form-control" >
           <br>
-          <button class="btn btn-primary mb-3"
-         
-          
+          <button class="btn btn-primary mb-3"        
+          (click)="PassParentData(name.value,email.value,age.value)"
           >Add Employe</button>&nbsp;<br>
-
+        <span>{{response}}</span>
          
        
       </div>
       <div class="col-md-6 col-md-4">
-        <app-employe></app-employe>
+        <app-employe [objData]="inputObj" ></app-employe>
    
       </div>
     

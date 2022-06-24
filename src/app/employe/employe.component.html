@@ -12,11 +12,12 @@
             <th class="text-white">Age</th>
           </tr>
         </thead>
-        <tbody >
+        <tbody *ngFor="let item of listEmploye">
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.age}}</td>
+         
           </tr>
         </tbody>
       </table>
@@ -25,7 +26,7 @@
   <br />
   <input type="text" class="form-control" #name />
   <br />
-  <button class="btn btn-success" >
+  <button class="btn btn-success" (click)="addItem(name.value)">
     Change Parent Title
   </button>
   
