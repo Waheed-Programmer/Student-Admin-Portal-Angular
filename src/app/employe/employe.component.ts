@@ -12,11 +12,11 @@ export class EmployeComponent implements OnInit {
   @Input() nameAge:any;
   @Input() objData:any;
 
-  @Output() databack = new EventEmitter<string>();
+  @Output() databackOutput = new EventEmitter<string>();
 
   addItem(value:string){
     debugger
-    this.databack.emit(value)
+    this.databackOutput.emit(value)
 
   }
   listEmploye:any=[{

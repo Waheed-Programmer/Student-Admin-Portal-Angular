@@ -28,7 +28,7 @@
        
       </div>
       <div class="col-md-6 col-md-4">
-        <app-employe [objData]="inputObj" ></app-employe>
+        <app-employe [objData]="inputObj" (databackOutput)="changeTitle($event)"></app-employe>
    
       </div>
     
