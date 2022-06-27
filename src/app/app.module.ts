@@ -11,6 +11,9 @@ import { EmployeAboutComponent } from './employe-about/employe-about.component';
 import { AdminModule } from './admin/admin.module';
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,12 +21,14 @@ import { AdminModule } from './admin/admin.module';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    EmployeAboutComponent
+    EmployeAboutComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AdminModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
