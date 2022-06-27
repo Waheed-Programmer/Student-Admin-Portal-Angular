@@ -6,7 +6,7 @@
       Hi , Welcome {{title}}
      </h3>
      <li>
-      <a routerLink="">Home</a>&nbsp;
+    <a routerLink="">Home</a>&nbsp;
      <a routerLink="About">About</a>&nbsp;
      <a routerLink="Contact">Contact</a>&nbsp;
      <a routerLink="Employee">Employee</a>
@@ -28,7 +28,10 @@
           (click)="PassParentData(name.value,email.value,age.value)"
           >Add Employe</button>&nbsp;<br>
         <span>{{response}}</span>
-         
+         <ul>
+          <li routerLink="List">List</li>
+          <li routerLink="Login">Login</li>
+         </ul>
        
       </div>
       <div class="col-md-6 col-md-4">

@@ -24,9 +24,11 @@
     </div>
   </div>
   <br />
+  <a routerLink="company">Employe About Link</a>
   <input type="text" class="form-control" #name />
   <br />
   <button class="btn btn-success" (click)="addItem(name.value)">
     Change Parent Title
   </button>
+  <router-outlet></router-outlet>
   

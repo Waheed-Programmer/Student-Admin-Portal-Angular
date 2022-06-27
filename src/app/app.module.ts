@@ -7,6 +7,9 @@ import { EmployeComponent } from './employe/employe.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { EmployeAboutComponent } from './employe-about/employe-about.component';
+import { AdminModule } from './admin/admin.module';
+
 
 @NgModule({
   declarations: [
@@ -14,11 +17,13 @@ import { ContactComponent } from './contact/contact.component';
     EmployeComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    EmployeAboutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
