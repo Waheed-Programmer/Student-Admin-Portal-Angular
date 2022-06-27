@@ -9,6 +9,8 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { EmployeAboutComponent } from './employe-about/employe-about.component';
 import { AdminModule } from './admin/admin.module';
+import { UserModule } from './user/user.module';
+
 
 
 
@@ -27,7 +29,8 @@ import { AdminModule } from './admin/admin.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminModule
+    AdminModule,
+    UserModule
     
   ],
   providers: [],

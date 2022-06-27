@@ -28,9 +28,17 @@
           (click)="PassParentData(name.value,email.value,age.value)"
           >Add Employe</button>&nbsp;<br>
         <span>{{response}}</span>
+        <h3>Admin</h3>
+        <ul>
+          <li><a routerLink="List">Admin List</a></li>
+          <li><a routerLink="Login">Admin Login</a></li>
+          
+        </ul>
+        <h3>User</h3>
          <ul>
-          <li routerLink="List">List</li>
-          <li routerLink="Login">Login</li>
+          <li><a routerLink="List">User List</a></li>
+          <li><a routerLink="Login">User Login</a></li>
+          
          </ul>
        
       </div>
