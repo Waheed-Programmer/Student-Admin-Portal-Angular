@@ -10,6 +10,12 @@ import { ContactComponent } from './contact/contact.component';
 import { EmployeAboutComponent } from './employe-about/employe-about.component';
 import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PopupComponent } from './popup/popup.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -24,13 +30,20 @@ import { UserModule } from './user/user.module';
     AboutComponent,
     ContactComponent,
     EmployeAboutComponent,
+    PopupComponent,
+   
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AdminModule,
-    UserModule
+    UserModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule
     
   ],
   providers: [],
