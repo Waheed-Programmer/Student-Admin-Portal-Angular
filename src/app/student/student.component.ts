@@ -14,8 +14,9 @@ export class StudentComponent implements OnInit {
   ngOnInit(): void {
     this.studentservice.getAllStudent().subscribe(
       (studentData)=>{
+        debugger
         this.getstudents = studentData;
-        console.log(this.getstudents[0].StudentName)
+        console.log(this.getstudents)
       }
     )
   }

@@ -8,11 +8,11 @@ import { student } from '../Infrastructure/student.interface';
 })
 export class StudentService {
 
-  readonly BaseUrl = "https://localhost:5001/api/";
+  readonly BaseUrl = "https://localhost:5001/api";
   constructor(private httpClient:HttpClient) { }
 
   getAllStudent():Observable<student[]>
   {
-    return this.httpClient.get<student[]>(this.BaseUrl + '/Student')
+    return this.httpClient.get<student[]>(this.BaseUrl + '/Student/GetListStudent')
   }
 }
