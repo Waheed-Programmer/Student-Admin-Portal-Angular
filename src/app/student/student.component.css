@@ -3,5 +3,8 @@ table{
 }
 .input{
   float: right;
-  width: 50%;;
+  border: 1px solid darkblue;
+  padding: 10px;
+  border-radius: 3px;
+
 }

@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-xl-6 mt-3">
+      <a
+      routerLink="/student" color="primary"
+      mat-raised-button
+
+      ><mat-icon>chevron_left</mat-icon>Go Back</a>
+
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <form #StudentForm="ngForm"></form>
+        <div class="row">
+          <div class="col-xs-12 mt-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Student Name</mat-label>
+              <input type="text" matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 ">
+            <mat-form-field appearance="outline">
+              <mat-label>Student Email</mat-label>
+              <input type="text" matInput>
+            </mat-form-field>
+
+          </div>
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Student Contact</mat-label>
+              <input type="text" matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 ">
+            <mat-form-field appearance="outline">
+              <mat-label>Student Gender</mat-label>
+              <input type="text" matInput>
+            </mat-form-field>
+
+          </div>
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Physical Address</mat-label>
+              <textarea matInput></textarea>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Postal Address</mat-label>
+              <textarea matInput></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-xs-6">
+        <!-- Display Image -->
+      </div>
+    </div>
+
+
+  </div>
+</div>

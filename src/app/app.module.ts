@@ -13,7 +13,10 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSortModule} from '@angular/material/sort';
+import { FormsModule } from '@angular/forms';
+import { ViewstudentComponent } from './student/viewstudent/viewstudent.component';
 
 
 
@@ -22,6 +25,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     AppComponent,
     TopNavComponent,
     StudentComponent,
+    ViewstudentComponent,
 
 
 
@@ -35,7 +39,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatIconModule,
     MatButtonModule,
     MatInputModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    BrowserAnimationsModule,
+    MatSortModule,
+    FormsModule
 
 
   ],
