@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { student } from 'src/app/Infrastructure/student.interface';
 import { StudentService } from 'src/app/studentservice/student.service';
 
 @Component({
@@ -10,6 +11,27 @@ import { StudentService } from 'src/app/studentservice/student.service';
 export class ViewstudentComponent implements OnInit {
 
   Id:string|null|undefined;
+
+  // studentData:student{
+  //   StudentId: 0,
+  //   StudentName:'',
+  //   StudentEmail: '',
+  //   StudentContact: '',
+  //   ProfileImg: '',
+  //   GenderId: 0,
+  //   Address:{
+  //   AddressId:0,
+  //   PhysicalAddress: '',
+  //   PostalAddress: '',
+  //   } ,
+  //   Gender:{
+  //     GenderId: 0,
+  //   GenderName: '',
+  //   GenderDesc:''
+  //   }
+  //   }
+
+
   constructor(private studentservice: StudentService,
     private route:ActivatedRoute) { }
 
