@@ -1,9 +1,11 @@
-<!-- <div class="container">
-  <div class="row mt-2 mb-2">
-  </div>
-</div> -->
 <div class="container">
-  <input type="text" placeholder="Search Here" class="end-xs input mt-2 mb-2"/>
+
+</div>
+<div class="container mat-elevation-z8"><br>
+  <div class="row mt-2">
+    <h1 class="text-center">List Of Students</h1>
+  </div>
+  <input type="text" placeholder="Search Here" class="end-xs input mt-3 mb-3"/>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -35,8 +37,12 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
+  </table><br>
+  <mat-paginator [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page">
+</mat-paginator>
 
 
 </div>
