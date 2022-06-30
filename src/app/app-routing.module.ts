@@ -7,7 +7,10 @@ const routes: Routes = [
 {
   path: "",
   component:StudentComponent
-
+},
+{
+  path: "student",
+  component:StudentComponent
 }
 ];
 
