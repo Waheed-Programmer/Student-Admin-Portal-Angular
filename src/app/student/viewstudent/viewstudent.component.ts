@@ -40,7 +40,7 @@ export class ViewstudentComponent implements OnInit {
     });
     if(this.Id){
       this.studentservice.getStudent(this.Id).subscribe((data)=>{
-
+      this.studentData = data;
       })
     }
   }
