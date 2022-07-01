@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row">
+  <div class="row text-end">
 
-    <div class="col-xl-6 mt-3">
+    <div class="col-xl-12 mt-3  ">
       <a
       routerLink="/student" color="primary"
       mat-raised-button
@@ -9,15 +9,15 @@
       ><mat-icon>chevron_left</mat-icon>Go Back</a>
 
     </div>
-
+  </div>
     <div class="row">
       <div class="col-xs-6">
-        <form #StudentForm="ngForm"></form>
+        <form #StudentForm="ngForm">
         <div class="row">
           <div class="col-xs-12 mt-4">
             <mat-form-field appearance="outline">
               <mat-label>Student Name</mat-label>
-              <input type="text" matInput [(ngModel)]="studentData.studentName">
+              <input type="text" matInput [(ngModel)]="studentData.studentName" name="studentName">
             </mat-form-field>
           </div>
         </div>
@@ -25,14 +25,14 @@
           <div class="col-xs-6 ">
             <mat-form-field appearance="outline">
               <mat-label>Student Email</mat-label>
-              <input type="text" matInput [(ngModel)]="studentData.studentEmail">
+              <input type="text" matInput [(ngModel)]="studentData.studentEmail" name="studentEmail">
             </mat-form-field>
 
           </div>
           <div class="col-xs-6">
             <mat-form-field appearance="outline">
               <mat-label>Student Contact</mat-label>
-              <input type="text" matInput [(ngModel)]="studentData.studentContact">
+              <input type="text" matInput [(ngModel)]="studentData.studentContact" name="studentContact">
             </mat-form-field>
           </div>
         </div>
@@ -40,8 +40,8 @@
           <div class="col-xs-6 ">
             <mat-form-field appearance="outline">
               <mat-label>Student Gender</mat-label>
-              <mat-select [(ngModel)] = "studentData.gender.genderId">
-                <mat-option *ngFor="let item of genderList" value="Gender.genderId">
+              <mat-select [(ngModel)] = "studentData.gender.genderId" name="gender">
+                <mat-option *ngFor="let item of genderList" [value]="item.genderId">
                   {{item.genderName}}
                 </mat-option>
 
@@ -52,23 +52,29 @@
           <div class="col-xs-6">
             <mat-form-field appearance="outline">
               <mat-label>Physical Address</mat-label>
-              <textarea matInput [(ngModel)] = "studentData.address.physicalAddress"></textarea>
+              <textarea matInput [(ngModel)] = "studentData.address.physicalAddress" name="physicalAddress"
+              ></textarea>
             </mat-form-field>
           </div>
           <div class="col-xs-6">
             <mat-form-field appearance="outline">
               <mat-label>Postal Address</mat-label>
-              <textarea matInput [(ngModel)]="studentData.address.postalAddress" ></textarea>
-            </mat-form-field>
+              <textarea matInput [(ngModel)]="studentData.address.postalAddress" name="postalAddress" ></textarea>
+            </mat-form-field><br>
+            <button class="mb-3" mat-raised-button color="primary">Submit</button>
           </div>
-        </div>
 
+
+
+        </div>
+      </form>
       </div>
       <div class="col-xs-6">
         <!-- Display Image -->
       </div>
+
     </div>
 
 
-  </div>
+
 </div>
