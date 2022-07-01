@@ -12,7 +12,7 @@ import { StudentService } from '../studentservice/student.service';
 })
 export class StudentComponent implements OnInit {
   getstudents:student[] =[];
-  displayedColumns: string[] = ['Student Name', 'Student Email', 'Student Contact'];
+  displayedColumns: string[] = ['Student Name', 'Student Email', 'Student Contact','edit'];
   dataSource:MatTableDataSource<student> = new  MatTableDataSource<student>();
   @ViewChild(MatPaginator) matpaginator!: MatPaginator;
   @ViewChild(MatSort) matSort!: MatSort;

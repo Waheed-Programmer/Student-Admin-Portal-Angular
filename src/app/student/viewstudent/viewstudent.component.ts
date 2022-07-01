@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Gender } from 'src/app/Infrastructure/gender.interface';
 import { student } from 'src/app/Infrastructure/student.interface';
 import { StudentService } from 'src/app/studentservice/student.service';
 
@@ -9,7 +10,7 @@ import { StudentService } from 'src/app/studentservice/student.service';
   styleUrls: ['./viewstudent.component.css']
 })
 export class ViewstudentComponent implements OnInit {
-
+  genderList:Gender[] = [];
   Id:string|null|undefined;
   studentData:student={
     studentId: 0,
@@ -35,11 +36,21 @@ export class ViewstudentComponent implements OnInit {
     private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+
+
+    //Load list of gender through this line of code
+    debugger
+    this.studentservice.getAllGender().subscribe((loadGender)=>{
+      this.genderList = loadGender;
+    })
+
+
+
     this.route.paramMap.subscribe((params)=>{
       this.Id = params.get('id')
     });
     if(this.Id){
-      debugger
+
       this.studentservice.getStudent(this.Id).subscribe((data)=>{
       this.studentData = data;
       })

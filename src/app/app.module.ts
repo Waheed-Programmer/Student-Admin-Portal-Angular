@@ -17,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSortModule} from '@angular/material/sort';
 import { FormsModule } from '@angular/forms';
 import { ViewstudentComponent } from './student/viewstudent/viewstudent.component';
-
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -42,7 +42,8 @@ import { ViewstudentComponent } from './student/viewstudent/viewstudent.componen
     MatPaginatorModule,
     BrowserAnimationsModule,
     MatSortModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule
 
 
   ],

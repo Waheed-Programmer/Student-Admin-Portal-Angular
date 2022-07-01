@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Gender } from '../Infrastructure/gender.interface';
 import { student } from '../Infrastructure/student.interface';
 
 @Injectable({
@@ -22,4 +23,11 @@ export class StudentService {
   {
     return this.httpClient.get<student>(this.BaseUrl + '/Student/GetStudent/'+Id)
   }
+
+  //Fetch data all Gender from data base
+  getAllGender():Observable<Gender[]>
+  {
+    return this.httpClient.get<Gender[]>(this.BaseUrl + '/Gender/GetListGender')
+  }
+
 }
