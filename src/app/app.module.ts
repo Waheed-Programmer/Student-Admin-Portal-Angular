@@ -18,7 +18,7 @@ import {MatSortModule} from '@angular/material/sort';
 import { FormsModule } from '@angular/forms';
 import { ViewstudentComponent } from './student/viewstudent/viewstudent.component';
 import { MatSelectModule } from '@angular/material/select';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,8 @@ import { MatSelectModule } from '@angular/material/select';
     BrowserAnimationsModule,
     MatSortModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
 
 
   ],

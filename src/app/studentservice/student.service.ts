@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Gender } from '../Infrastructure/gender.interface';
 import { student } from '../Infrastructure/student.interface';
+import { StudentViewModel } from '../Infrastructure/studentViewModel';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,21 @@ export class StudentService {
     return this.httpClient.get<student[]>(this.BaseUrl + '/Student/GetListStudent')
   }
 
+  //Update student from data base
+  updateStudent(id:number, studentmodel:student):Observable<student>{
+    debugger
+    const ViewModel:StudentViewModel={
+      studentName:studentmodel.studentName,
+      studentEmail: studentmodel.studentEmail,
+      studentContact: studentmodel.studentContact,
+
+      genderId: studentmodel.genderId,
+      physicalAddress: studentmodel.address.physicalAddress,
+      postalAddress: studentmodel.address.postalAddress
+    }
+    return this.httpClient.put<student>(this.BaseUrl + '/Student/updateStudent/'+id,ViewModel)
+
+  }
   //Fetch data for single student
   getStudent(Id:string):Observable<student>
   {
@@ -29,5 +45,7 @@ export class StudentService {
   {
     return this.httpClient.get<Gender[]>(this.BaseUrl + '/Gender/GetListGender')
   }
+
+
 
 }

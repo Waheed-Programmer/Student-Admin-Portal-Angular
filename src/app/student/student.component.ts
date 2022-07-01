@@ -12,7 +12,7 @@ import { StudentService } from '../studentservice/student.service';
 })
 export class StudentComponent implements OnInit {
   getstudents:student[] =[];
-  displayedColumns: string[] = ['Student Name', 'Student Email', 'Student Contact','edit'];
+  displayedColumns: string[] = ['Student Name', 'Student Email', 'Student Contact','Gender','physical','postal','edit'];
   dataSource:MatTableDataSource<student> = new  MatTableDataSource<student>();
   @ViewChild(MatPaginator) matpaginator!: MatPaginator;
   @ViewChild(MatSort) matSort!: MatSort;
@@ -22,7 +22,7 @@ export class StudentComponent implements OnInit {
   ngOnInit(): void {
     this.studentservice.getAllStudent().subscribe(
       (studentData)=>{
-        debugger
+
         this.getstudents = studentData;
         this.dataSource = new MatTableDataSource<student>(this.getstudents);
        //add paginations

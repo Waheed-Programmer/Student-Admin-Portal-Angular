@@ -61,7 +61,7 @@
               <mat-label>Postal Address</mat-label>
               <textarea matInput [(ngModel)]="studentData.address.postalAddress" name="postalAddress" ></textarea>
             </mat-form-field><br>
-            <button class="mb-3" mat-raised-button color="primary">Submit</button>
+            <button (click)="UpdateStudent()" class="mb-3" mat-raised-button color="primary">Submit</button>
           </div>
 
 
