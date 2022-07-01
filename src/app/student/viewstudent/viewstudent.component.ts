@@ -12,21 +12,21 @@ export class ViewstudentComponent implements OnInit {
 
   Id:string|null|undefined;
   studentData:student={
-    StudentId: 0,
-    StudentName:'',
-    StudentEmail: '',
-    StudentContact: '',
-    ProfileImg: '',
-    GenderId: 0,
-    Address:{
-    AddressId:0,
-    PhysicalAddress: '',
-    PostalAddress: '',
+    studentId: 0,
+    studentName:'',
+    studentEmail: '',
+    studentContact: '',
+    profileImg: '',
+    genderId: 0,
+    address:{
+    addressId:0,
+    physicalAddress: '',
+    postalAddress: '',
     } ,
-    Gender:{
-      GenderId: 0,
-    GenderName: '',
-    GenderDesc:''
+    gender:{
+      genderId: 0,
+    genderName: '',
+    genderDesc:''
     }
   }
 
@@ -39,6 +39,7 @@ export class ViewstudentComponent implements OnInit {
       this.Id = params.get('id')
     });
     if(this.Id){
+      debugger
       this.studentservice.getStudent(this.Id).subscribe((data)=>{
       this.studentData = data;
       })

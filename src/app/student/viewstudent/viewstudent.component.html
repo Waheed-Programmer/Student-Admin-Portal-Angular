@@ -17,7 +17,7 @@
           <div class="col-xs-12 mt-4">
             <mat-form-field appearance="outline">
               <mat-label>Student Name</mat-label>
-              <input type="text" matInput [(ngModel)]="studentData.StudentName">
+              <input type="text" matInput [(ngModel)]="studentData.studentName">
             </mat-form-field>
           </div>
         </div>
@@ -25,14 +25,14 @@
           <div class="col-xs-6 ">
             <mat-form-field appearance="outline">
               <mat-label>Student Email</mat-label>
-              <input type="text" matInput [(ngModel)]="studentData.StudentEmail">
+              <input type="text" matInput [(ngModel)]="studentData.studentEmail">
             </mat-form-field>
 
           </div>
           <div class="col-xs-6">
             <mat-form-field appearance="outline">
               <mat-label>Student Contact</mat-label>
-              <input type="text" matInput [(ngModel)]="studentData.StudentContact">
+              <input type="text" matInput [(ngModel)]="studentData.studentContact">
             </mat-form-field>
           </div>
         </div>
@@ -40,20 +40,20 @@
           <div class="col-xs-6 ">
             <mat-form-field appearance="outline">
               <mat-label>Student Gender</mat-label>
-              <input type="text" matInput [(ngModel)]="studentData.Gender.GenderName">
+              <input type="text" matInput [(ngModel)] = "studentData.gender.genderName" >
             </mat-form-field>
 
           </div>
           <div class="col-xs-6">
             <mat-form-field appearance="outline">
               <mat-label>Physical Address</mat-label>
-              <textarea matInput [(ngModel)]="studentData.Address.PhysicalAddress"></textarea>
+              <textarea matInput [(ngModel)] = "studentData.address.physicalAddress"></textarea>
             </mat-form-field>
           </div>
           <div class="col-xs-6">
             <mat-form-field appearance="outline">
               <mat-label>Postal Address</mat-label>
-              <textarea matInput [(ngModel)]="studentData.Address.PostalAddress"></textarea>
+              <textarea matInput [(ngModel)]="studentData.address.postalAddress" ></textarea>
             </mat-form-field>
           </div>
         </div>

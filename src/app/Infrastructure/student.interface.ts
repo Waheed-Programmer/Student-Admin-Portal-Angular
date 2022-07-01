@@ -4,12 +4,12 @@ import { Gender } from "./gender.interface";
 
 
 export interface student{
-  StudentId: number,
-  StudentName:string,
-  StudentEmail: string,
-  StudentContact: string,
-  ProfileImg: string,
-  GenderId: number,
-  Address: Address,
-  Gender: Gender
+  studentId: number,
+  studentName:string,
+  studentEmail: string,
+  studentContact: string,
+  profileImg: string,
+  genderId: number,
+  address: Address,
+  gender: Gender
 }

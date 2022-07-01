@@ -1,6 +1,6 @@
 export interface Address{
-  AddressId:number,
-  PhysicalAddress: string,
-  PostalAddress: string,
+  addressId:number,
+  physicalAddress: string,
+  postalAddress: string,
   // StudentId: number
 }
