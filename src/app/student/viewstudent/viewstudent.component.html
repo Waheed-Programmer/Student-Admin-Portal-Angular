@@ -10,6 +10,7 @@
 
     </div>
   </div>
+  <div class="row"> <h1>{{headerLabel}}</h1></div>
     <div class="row">
       <div class="col-xs-6">
         <form #StudentForm="ngForm">
@@ -61,8 +62,15 @@
               <mat-label>Postal Address</mat-label>
               <textarea matInput [(ngModel)]="studentData.address.postalAddress" name="postalAddress" ></textarea>
             </mat-form-field><br>
+
+          </div>
+          <div class="col-xs-6" *ngIf="!isNew">
             <button (click)="UpdateStudent()" class="mb-3" mat-raised-button color="primary" routerLink="/student">Submit</button>&nbsp;
             <button (click)="DeleteStudent()" class="mb-3" mat-raised-button color="warn" routerLink="/student">Delete</button>
+          </div>
+          <div class="col-xs-6" *ngIf="isNew">
+            <button (click)="AddStudent()" class="mb-3" mat-raised-button color="primary" routerLink="/student">Add Student</button>
+
           </div>
         </div>
       </form>

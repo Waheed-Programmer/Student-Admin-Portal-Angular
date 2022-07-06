@@ -35,6 +35,27 @@ export class StudentService {
       profileImg: ''
     }
     return this.httpClient.put<student>(this.BaseUrl + '/Student/updateStudent/'+id,ViewModel)
+  }
+
+  //Add new student
+
+  insertStudent(studentmodel:student):Observable<student>{
+    debugger
+    const ViewModel:StudentViewModel={
+      studentName: studentmodel.studentName,
+      studentEmail: studentmodel.studentEmail,
+      studentContact: studentmodel.studentContact,
+      genderId: studentmodel.genderId,
+      genderName: studentmodel.gender.genderName,
+      physicalAddress: studentmodel.address.physicalAddress,
+      postalAddress: studentmodel.address.postalAddress,
+      addressId: studentmodel.addressId,
+      studentId: studentmodel.studentId,
+      profileImg: ''
+    }
+    return this.httpClient.post<student>(this.BaseUrl + '/Student/addStudent/',ViewModel)
+
+
 
   }
   //Fetch data for single student
@@ -44,9 +65,9 @@ export class StudentService {
   }
 
   //Delete Dtudent data
-  deleteStudent(Id:string):Observable<student>
+  deleteStudent(Id:number):Observable<student>
   {
-    return this.httpClient.delete<student>(this.BaseUrl + '/Student/GetStudent/'+Id)
+    return this.httpClient.delete<student>(this.BaseUrl + '/Student/deleteStudent/'+Id)
   }
   //Fetch data all Gender from data base
   getAllGender():Observable<Gender[]>

@@ -33,7 +33,8 @@ export class ViewstudentComponent implements OnInit {
       genderDesc: '',
     },
   };
-
+  isNew = false;
+  headerLabel = '';
   constructor(
     private studentservice: StudentService,
     private route: ActivatedRoute,
@@ -42,15 +43,27 @@ export class ViewstudentComponent implements OnInit {
 
   ngOnInit(): void {
     //Load list of gender through this line of code
-    debugger
+
     this.studentservice.getAllGender().subscribe((loadGender) => {
       this.genderList = loadGender;
     });
-    debugger
+
     this.route.paramMap.subscribe((params) => {
       this.Id = params.get('id');
     });
     if (this.Id) {
+      if(this.Id){
+        debugger
+        if(this.Id.toLowerCase()=="Add".toLocaleLowerCase()){
+          this.isNew = true;
+          this.headerLabel = "Add Student"
+        }
+        else{
+          this.isNew= false;
+          this.headerLabel = "Update Student"
+
+        }
+      }
       this.studentservice.getStudent(this.Id).subscribe((data) => {
         this.studentData = data;
       });
@@ -68,7 +81,25 @@ export class ViewstudentComponent implements OnInit {
       );
   }
 
-  DeleteStudent(){
+  DeleteStudent():void{
+    this.studentservice
+    .deleteStudent(this.studentData.studentId)
+    .subscribe(
+      (response) => {
+        let s = response;
 
+      }
+    );
+  }
+
+  AddStudent():void{
+    debugger
+    this.studentservice
+      .insertStudent(this.studentData)
+      .subscribe(
+        (response) => {
+          let s = response;
+        }
+      );
   }
 }
