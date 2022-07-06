@@ -10,6 +10,7 @@ export interface student{
   studentContact: string,
   profileImg: string,
   genderId: number,
+  addressId: number,
   address: Address,
   gender: Gender
 }

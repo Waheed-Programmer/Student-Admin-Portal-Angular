@@ -23,13 +23,16 @@ export class StudentService {
   updateStudent(id:number, studentmodel:student):Observable<student>{
     debugger
     const ViewModel:StudentViewModel={
-      studentName:studentmodel.studentName,
+      studentName: studentmodel.studentName,
       studentEmail: studentmodel.studentEmail,
       studentContact: studentmodel.studentContact,
-
       genderId: studentmodel.genderId,
+      genderName: studentmodel.gender.genderName,
       physicalAddress: studentmodel.address.physicalAddress,
-      postalAddress: studentmodel.address.postalAddress
+      postalAddress: studentmodel.address.postalAddress,
+      addressId: studentmodel.addressId,
+      studentId: id,
+      profileImg: ''
     }
     return this.httpClient.put<student>(this.BaseUrl + '/Student/updateStudent/'+id,ViewModel)
 

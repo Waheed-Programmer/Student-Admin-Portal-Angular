@@ -11,6 +11,7 @@ import { StudentService } from 'src/app/studentservice/student.service';
   styleUrls: ['./viewstudent.component.css'],
 })
 export class ViewstudentComponent implements OnInit {
+
   genderList: Gender[] = [];
   Id: string | null | undefined;
   studentData: student = {
@@ -20,6 +21,7 @@ export class ViewstudentComponent implements OnInit {
     studentContact: '',
     profileImg: '',
     genderId: 0,
+    addressId:0,
     address: {
       addressId: 0,
       physicalAddress: '',
