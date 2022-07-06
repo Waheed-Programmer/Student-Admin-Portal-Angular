@@ -42,11 +42,11 @@ export class ViewstudentComponent implements OnInit {
 
   ngOnInit(): void {
     //Load list of gender through this line of code
-
+    debugger
     this.studentservice.getAllGender().subscribe((loadGender) => {
       this.genderList = loadGender;
     });
-
+    debugger
     this.route.paramMap.subscribe((params) => {
       this.Id = params.get('id');
     });
@@ -66,5 +66,9 @@ export class ViewstudentComponent implements OnInit {
           let s = response;
         }
       );
+  }
+
+  DeleteStudent(){
+
   }
 }

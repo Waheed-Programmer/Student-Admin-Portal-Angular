@@ -31,7 +31,7 @@ export class StudentService {
       physicalAddress: studentmodel.address.physicalAddress,
       postalAddress: studentmodel.address.postalAddress,
       addressId: studentmodel.addressId,
-      studentId: id,
+      studentId: studentmodel.studentId,
       profileImg: ''
     }
     return this.httpClient.put<student>(this.BaseUrl + '/Student/updateStudent/'+id,ViewModel)
@@ -43,6 +43,11 @@ export class StudentService {
     return this.httpClient.get<student>(this.BaseUrl + '/Student/GetStudent/'+Id)
   }
 
+  //Delete Dtudent data
+  deleteStudent(Id:string):Observable<student>
+  {
+    return this.httpClient.delete<student>(this.BaseUrl + '/Student/GetStudent/'+Id)
+  }
   //Fetch data all Gender from data base
   getAllGender():Observable<Gender[]>
   {
