@@ -47,10 +47,10 @@ export class StudentService {
       studentContact: studentmodel.studentContact,
       genderId: studentmodel.genderId,
       genderName: studentmodel.gender.genderName,
+      addressId: studentmodel.addressId,
       physicalAddress: studentmodel.address.physicalAddress,
       postalAddress: studentmodel.address.postalAddress,
-      addressId: studentmodel.addressId,
-      studentId: studentmodel.studentId,
+      studentId: 0,
       profileImg: ''
     }
     return this.httpClient.post<student>(this.BaseUrl + '/Student/addStudent/',ViewModel)
@@ -59,7 +59,7 @@ export class StudentService {
 
   }
   //Fetch data for single student
-  getStudent(Id:string):Observable<student>
+  getStudent(Id:string|number):Observable<student>
   {
     return this.httpClient.get<student>(this.BaseUrl + '/Student/GetStudent/'+Id)
   }

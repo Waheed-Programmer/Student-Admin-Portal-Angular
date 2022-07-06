@@ -13,7 +13,7 @@ import { StudentService } from 'src/app/studentservice/student.service';
 export class ViewstudentComponent implements OnInit {
 
   genderList: Gender[] = [];
-  Id: string | null | undefined;
+  stage: string | null | undefined;
   studentData: student = {
     studentId: 0,
     studentName: '',
@@ -49,12 +49,12 @@ export class ViewstudentComponent implements OnInit {
     });
 
     this.route.paramMap.subscribe((params) => {
-      this.Id = params.get('id');
+      this.stage = params.get('id');
     });
-    if (this.Id) {
-      if(this.Id){
+    if (this.stage) {
+      if(this.stage){
         debugger
-        if(this.Id.toLowerCase()=="Add".toLocaleLowerCase()){
+        if(this.stage.toLowerCase()=="Add".toLocaleLowerCase()){
           this.isNew = true;
           this.headerLabel = "Add Student"
         }
@@ -64,7 +64,7 @@ export class ViewstudentComponent implements OnInit {
 
         }
       }
-      this.studentservice.getStudent(this.Id).subscribe((data) => {
+      this.studentservice.getStudent(this.stage).subscribe((data) => {
         this.studentData = data;
       });
     }

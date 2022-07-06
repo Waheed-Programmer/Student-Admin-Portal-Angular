@@ -8,7 +8,7 @@ import { Component ,NgModule, ViewChild} from '@angular/core';
 })
 export class AppComponent {
 
-  title = 'Out-Put-Data';
+  title = 'Student-Portal';
 
 
 
