@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Gender } from 'src/app/Infrastructure/gender.interface';
 import { student } from 'src/app/Infrastructure/student.interface';
 import { StudentService } from 'src/app/studentservice/student.service';
@@ -38,7 +38,8 @@ export class ViewstudentComponent implements OnInit {
   constructor(
     private studentservice: StudentService,
     private route: ActivatedRoute,
-    private snakbar: MatSnackBar
+    private snakbar: MatSnackBar,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -77,6 +78,7 @@ export class ViewstudentComponent implements OnInit {
       .subscribe(
         (response) => {
           let s = response;
+          this.router.navigate(['/student'])
         }
       );
   }
@@ -87,7 +89,7 @@ export class ViewstudentComponent implements OnInit {
     .subscribe(
       (response) => {
         let s = response;
-
+        this.router.navigate(['/student'])
       }
     );
   }
@@ -99,6 +101,7 @@ export class ViewstudentComponent implements OnInit {
       .subscribe(
         (response) => {
           let s = response;
+          this.router.navigate(['/student'])
         }
       );
   }
