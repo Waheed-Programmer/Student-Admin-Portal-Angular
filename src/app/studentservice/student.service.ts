@@ -64,7 +64,7 @@ export class StudentService {
     return this.httpClient.get<student>(this.BaseUrl + '/Student/GetStudent/'+Id)
   }
 
-  //Delete Dtudent data
+  //Delete Student data
   deleteStudent(Id:number):Observable<student>
   {
     return this.httpClient.delete<student>(this.BaseUrl + '/Student/deleteStudent/'+Id)

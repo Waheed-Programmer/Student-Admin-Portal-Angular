@@ -18,7 +18,7 @@
           <div class="col-xs-12 mt-4">
             <mat-form-field appearance="outline">
               <mat-label>Student Name</mat-label>
-              <input type="text" matInput [(ngModel)]="studentData.studentName" name="studentName">
+              <input type="text" matInput [(ngModel)]="studentData.studentName" name="studentName" required>
             </mat-form-field>
           </div>
         </div>
@@ -33,7 +33,7 @@
           <div class="col-xs-6">
             <mat-form-field appearance="outline">
               <mat-label>Student Contact</mat-label>
-              <input type="text" matInput [(ngModel)]="studentData.studentContact" name="studentContact">
+              <input type="text" matInput [(ngModel)]="studentData.studentContact" name="studentContact" required>
             </mat-form-field>
           </div>
         </div>
@@ -53,23 +53,23 @@
           <div class="col-xs-6">
             <mat-form-field appearance="outline">
               <mat-label>Physical Address</mat-label>
-              <textarea matInput [(ngModel)] = "studentData.address.physicalAddress" name="physicalAddress"
+              <textarea matInput [(ngModel)] = "studentData.address.physicalAddress" name="physicalAddress" required
               ></textarea>
             </mat-form-field>
           </div>
           <div class="col-xs-6">
             <mat-form-field appearance="outline">
               <mat-label>Postal Address</mat-label>
-              <textarea matInput [(ngModel)]="studentData.address.postalAddress" name="postalAddress" ></textarea>
+              <textarea matInput [(ngModel)]="studentData.address.postalAddress" name="postalAddress" required ></textarea>
             </mat-form-field><br>
 
           </div>
           <div class="col-xs-6" *ngIf="!isNew">
             <button (click)="UpdateStudent()" class="mb-3" mat-raised-button color="primary" >Submit</button>&nbsp;
-            <button (click)="DeleteStudent()" class="mb-3" mat-raised-button color="warn" routerLink="/student">Delete</button>
+            <button (click)="DeleteStudent()" class="mb-3" mat-raised-button color="warn" >Delete</button>
           </div>
           <div class="col-xs-6" *ngIf="isNew">
-            <button (click)="AddStudent()" class="mb-3" mat-raised-button color="primary" routerLink="/student">Add Student</button>
+            <button (click)="AddStudent()" class="mb-3" mat-raised-button color="primary" >Add Student</button>
 
           </div>
         </div>

@@ -20,15 +20,15 @@ export class ViewstudentComponent implements OnInit {
     studentEmail: '',
     studentContact: '',
     profileImg: '',
-    genderId: 0,
-    addressId:0,
+    genderId: 1,
+    addressId: 0,
     address: {
       addressId: 0,
       physicalAddress: '',
       postalAddress: '',
     },
     gender: {
-      genderId: 0,
+      genderId: 1,
       genderName: '',
       genderDesc: '',
     },
@@ -38,7 +38,7 @@ export class ViewstudentComponent implements OnInit {
   constructor(
     private studentservice: StudentService,
     private route: ActivatedRoute,
-    private snakbar: MatSnackBar,
+
     private router: Router
   ) {}
 
@@ -46,6 +46,7 @@ export class ViewstudentComponent implements OnInit {
     //Load list of gender through this line of code
 
     this.studentservice.getAllGender().subscribe((loadGender) => {
+      debugger;
       this.genderList = loadGender;
     });
 
@@ -72,11 +73,12 @@ export class ViewstudentComponent implements OnInit {
   }
 
   UpdateStudent(): void {
-    debugger
+
     this.studentservice
       .updateStudent(this.studentData.studentId, this.studentData)
       .subscribe(
         (response) => {
+          debugger
           let s = response;
           this.router.navigate(['/student'])
         }
