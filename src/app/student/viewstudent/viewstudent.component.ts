@@ -20,7 +20,7 @@ export class ViewstudentComponent implements OnInit {
     studentEmail: '',
     studentContact: '',
     profileImg: '',
-    genderId: 1,
+    genderId: 0,
     addressId: 0,
     address: {
       addressId: 0,
@@ -28,7 +28,7 @@ export class ViewstudentComponent implements OnInit {
       postalAddress: '',
     },
     gender: {
-      genderId: 1,
+      genderId: 0,
       genderName: '',
       genderDesc: '',
     },

@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Country } from '../Infrastructure/country.interface';
+import { Department } from '../Infrastructure/department.interface';
 import { Gender } from '../Infrastructure/gender.interface';
 import { student } from '../Infrastructure/student.interface';
 import { StudentViewModel } from '../Infrastructure/studentViewModel';
@@ -23,16 +25,18 @@ export class StudentService {
   updateStudent(id:number, studentmodel:student):Observable<student>{
     debugger
     const ViewModel:StudentViewModel={
+
       studentName: studentmodel.studentName,
       studentEmail: studentmodel.studentEmail,
       studentContact: studentmodel.studentContact,
       genderId: studentmodel.genderId,
       genderName: studentmodel.gender.genderName,
-      physicalAddress: studentmodel.address.physicalAddress,
-      postalAddress: studentmodel.address.postalAddress,
-      addressId: studentmodel.addressId,
+      departmentId:studentmodel.department.departmentId,
+      departmentName:studentmodel.department.departmentName,
+      countryId: studentmodel.country.countryId,
+      countryName:studentmodel.country.countryName,
       studentId: studentmodel.studentId,
-      profileImg: ''
+
     }
     return this.httpClient.put<student>(this.BaseUrl + '/Student/updateStudent/'+id,ViewModel)
   }
@@ -47,11 +51,12 @@ export class StudentService {
       studentContact: studentmodel.studentContact,
       genderId: studentmodel.genderId,
       genderName: studentmodel.gender.genderName,
-      addressId: studentmodel.addressId,
-      physicalAddress: studentmodel.address.physicalAddress,
-      postalAddress: studentmodel.address.postalAddress,
+      departmentId:studentmodel.department.departmentId,
+      departmentName:studentmodel.department.departmentName,
+      countryId: studentmodel.country.countryId,
+      countryName:studentmodel.country.countryName,
       studentId: 0,
-      profileImg: ''
+
     }
     return this.httpClient.post<student>(this.BaseUrl + '/Student/addStudent/',ViewModel)
 
@@ -73,6 +78,18 @@ export class StudentService {
   getAllGender():Observable<Gender[]>
   {
     return this.httpClient.get<Gender[]>(this.BaseUrl + '/Gender/GetListGender')
+  }
+
+  //Fetch data all Department from data base
+  getAllDepartment():Observable<Department[]>
+  {
+    return this.httpClient.get<Department[]>(this.BaseUrl + '/Department/GetListDepartment')
+  }
+
+  //Fetch data all Country from data base
+  getAllCountry():Observable<Country[]>
+  {
+    return this.httpClient.get<Country[]>(this.BaseUrl + '/Country/GetListCountry')
   }
 
 

@@ -1,4 +1,6 @@
-import { Address } from "./address.interface";
+
+import { Country } from "./country.interface";
+import { Department } from "./department.interface";
 import { Gender } from "./gender.interface";
 
 
@@ -10,7 +12,8 @@ export interface student{
   studentContact: string,
   profileImg: string,
   genderId: number,
-  addressId: number,
-  address: Address,
+  departmentId: number,
+  department: Department,
+  country: Country,
   gender: Gender
 }
