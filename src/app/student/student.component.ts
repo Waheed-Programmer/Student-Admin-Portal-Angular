@@ -8,37 +8,17 @@ import { StudentService } from '../studentservice/student.service';
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
-  styleUrls: ['./student.component.css']
+  styleUrls: ['./student.component.css'],
 })
 export class StudentComponent implements OnInit {
-  getstudents:student[] =[];
-  displayedColumns: string[] = ['Student Name', 'Student Email', 'Student Contact','Gender','physical','postal','edit'];
-  dataSource:MatTableDataSource<student> = new  MatTableDataSource<student>();
-  @ViewChild(MatPaginator) matpaginator!: MatPaginator;
-  @ViewChild(MatSort) matSort!: MatSort;
-  FilterText:string='';
 
-  constructor(private studentservice: StudentService) { }
+  getstudents: student[] = [];
+  FilterText: string = '';
+
+  constructor(private studentservice: StudentService) {}
   ngOnInit(): void {
-    this.studentservice.getAllStudent().subscribe(
-      (studentData)=>{
-
-        this.getstudents = studentData;
-        this.dataSource = new MatTableDataSource<student>(this.getstudents);
-       //add paginations
-        if(this.matpaginator){
-        this.dataSource.paginator = this.matpaginator;
-       }
-       //Add sort system
-       if(this.matSort){
-        this.dataSource.sort = this.matSort;
-       }
-      }
-    )
+    this.studentservice.getAllStudent().subscribe((studentData) => {
+      this.getstudents = studentData;
+    });
   }
-
-  FilterStudent(){
-    this.dataSource.filter = this.FilterText;
-  }
-
 }

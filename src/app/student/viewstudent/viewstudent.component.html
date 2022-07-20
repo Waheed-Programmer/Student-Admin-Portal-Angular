@@ -3,10 +3,8 @@
 
     <div class="col-xl-12 mt-3  ">
       <a
-      routerLink="/student" color="primary"
-      mat-raised-button
-
-      ><mat-icon>chevron_left</mat-icon>Go Back</a>
+      routerLink="/student" type="button" class="btn btn-primary">
+      Go Back</a>
 
     </div>
   </div>
@@ -16,30 +14,38 @@
         <form #StudentForm="ngForm">
         <div class="row">
           <div class="col-xs-12 mt-4">
-            <mat-form-field appearance="outline">
+            <input type="text" class="form-control" placeholder="Student name" aria-label="Username" aria-describedby="basic-addon1"><br>
+
+            <!-- <mat-form-field appearance="outline">
               <mat-label>Student Name</mat-label>
               <input type="text" matInput [(ngModel)]="studentData.studentName" name="studentName" required>
-            </mat-form-field>
+            </mat-form-field> -->
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 ">
-            <mat-form-field appearance="outline">
+            <input type="text" class="form-control" placeholder="Student email" aria-label="Username" aria-describedby="basic-addon1"><br>
+            <!-- <mat-form-field appearance="outline">
               <mat-label>Student Email</mat-label>
               <input type="text" matInput [(ngModel)]="studentData.studentEmail" name="studentEmail"  required>
-            </mat-form-field>
+            </mat-form-field> -->
 
           </div>
           <div class="col-xs-6">
-            <mat-form-field appearance="outline">
+
+            <input type="text" class="form-control" placeholder="Student contact" aria-label="Username" aria-describedby="basic-addon1"><br>
+            <!-- <mat-form-field appearance="outline">
               <mat-label>Student Contact</mat-label>
               <input type="text" matInput [(ngModel)]="studentData.studentContact" name="studentContact" required>
-            </mat-form-field>
+            </mat-form-field> -->
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 ">
-            <mat-form-field appearance="outline">
+            <select class="form-control">
+              <option>Default select</option>
+            </select><br>
+            <!-- <mat-form-field appearance="outline">
               <mat-label>Student Gender</mat-label>
               <mat-select [(ngModel)] = "studentData.gender.genderId" name="gender">
                 <mat-option *ngFor="let item of genderList" [value]="item.genderId">
@@ -47,29 +53,34 @@
                 </mat-option>
 
               </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
 
           </div>
           <div class="col-xs-6">
-            <mat-form-field appearance="outline">
+
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+  <label class="form-check-label" for="inlineCheckbox1">1</label><br><br>
+            <!-- <mat-form-field appearance="outline">
               <mat-label>Physical Address</mat-label>
-              <!-- <textarea matInput [(ngModel)] = "studentData.address.physicalAddress" name="physicalAddress" required
-              ></textarea> -->
-            </mat-form-field>
+              <textarea matInput [(ngModel)] = "studentData.address.physicalAddress" name="physicalAddress" required
+              ></textarea>
+            </mat-form-field> -->
           </div>
           <div class="col-xs-6">
-            <mat-form-field appearance="outline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">1</label><br><br>
+            <!-- <mat-form-field appearance="outline">
               <mat-label>Postal Address</mat-label>
-              <!-- <textarea matInput [(ngModel)]="studentData.address.postalAddress" name="postalAddress" required ></textarea> -->
-            </mat-form-field><br>
+              <textarea matInput [(ngModel)]="studentData.address.postalAddress" name="postalAddress" required ></textarea>
+            </mat-form-field><br> -->
 
           </div>
           <div class="col-xs-6" *ngIf="!isNew">
-            <button (click)="UpdateStudent()" class="mb-3" mat-raised-button color="primary" >Submit</button>&nbsp;
-            <button (click)="DeleteStudent()" class="mb-3" mat-raised-button color="warn" >Delete</button>
+            <button (click)="UpdateStudent()" class="mb-3" class="btn btn-info mb-3" >Submit</button>&nbsp;
+            <button (click)="DeleteStudent()" class="btn btn-danger mb-3" >Delete</button>
           </div>
           <div class="col-xs-6" *ngIf="isNew">
-            <button (click)="AddStudent()" class="mb-3" mat-raised-button color="primary" >Add Student</button>
+            <button (click)="AddStudent()" class="btn btn-primary mb-3" >Add Student</button>
 
           </div>
         </div>
