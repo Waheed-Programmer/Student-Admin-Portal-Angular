@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row text-end">
 
-    <div class="col-xl-12 mt-3  ">
+    <div class="col-xl-12 mt-3 ">
       <a
       routerLink="/student" type="button" class="btn btn-primary">
       Go Back</a>
@@ -11,68 +11,45 @@
   <div class="row"> <h1>{{headerLabel}}</h1></div>
     <div class="row">
       <div class="col-xs-6">
-        <form #StudentForm="ngForm">
+        <form [formGroup]="studentForm" (ngSubmit)="AddStudent()">
         <div class="row">
           <div class="col-xs-12 mt-4">
-            <input type="text" class="form-control" placeholder="Student name" aria-label="Username" aria-describedby="basic-addon1"><br>
+            <input type="text" class="form-control" placeholder="Student name" formControlName="studentName"><br>
 
-            <!-- <mat-form-field appearance="outline">
-              <mat-label>Student Name</mat-label>
-              <input type="text" matInput [(ngModel)]="studentData.studentName" name="studentName" required>
-            </mat-form-field> -->
+
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 ">
-            <input type="text" class="form-control" placeholder="Student email" aria-label="Username" aria-describedby="basic-addon1"><br>
-            <!-- <mat-form-field appearance="outline">
-              <mat-label>Student Email</mat-label>
-              <input type="text" matInput [(ngModel)]="studentData.studentEmail" name="studentEmail"  required>
-            </mat-form-field> -->
+            <input type="text" class="form-control" placeholder="Student email" formControlName="studentEmail"><br>
+
 
           </div>
           <div class="col-xs-6">
 
-            <input type="text" class="form-control" placeholder="Student contact" aria-label="Username" aria-describedby="basic-addon1"><br>
-            <!-- <mat-form-field appearance="outline">
-              <mat-label>Student Contact</mat-label>
-              <input type="text" matInput [(ngModel)]="studentData.studentContact" name="studentContact" required>
-            </mat-form-field> -->
+            <input type="text" class="form-control" placeholder="Student contact" formControlName="studentContact"><br>
+
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 ">
-            <select class="form-control">
-              <option>Default select</option>
-            </select><br>
-            <!-- <mat-form-field appearance="outline">
-              <mat-label>Student Gender</mat-label>
-              <mat-select [(ngModel)] = "studentData.gender.genderId" name="gender">
-                <mat-option *ngFor="let item of genderList" [value]="item.genderId">
-                  {{item.genderName}}
-                </mat-option>
-
-              </mat-select>
-            </mat-form-field> -->
+            <ng-select>
+              <ng-option value="">Select Department</ng-option>
+              <ng-option *ngFor="let item of departmentList" value="{{item.departmentId}}">{{item.departmentName}}</ng-option>
+            </ng-select>
+            <br>
 
           </div>
           <div class="col-xs-6">
 
             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-  <label class="form-check-label" for="inlineCheckbox1">1</label><br><br>
-            <!-- <mat-form-field appearance="outline">
-              <mat-label>Physical Address</mat-label>
-              <textarea matInput [(ngModel)] = "studentData.address.physicalAddress" name="physicalAddress" required
-              ></textarea>
-            </mat-form-field> -->
+            <label class="form-check-label" for="inlineCheckbox1">1</label><br><br>
+
           </div>
           <div class="col-xs-6">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
             <label class="form-check-label" for="inlineRadio1">1</label><br><br>
-            <!-- <mat-form-field appearance="outline">
-              <mat-label>Postal Address</mat-label>
-              <textarea matInput [(ngModel)]="studentData.address.postalAddress" name="postalAddress" required ></textarea>
-            </mat-form-field><br> -->
+
 
           </div>
           <div class="col-xs-6" *ngIf="!isNew">

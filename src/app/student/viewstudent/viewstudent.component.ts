@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from 'src/app/Infrastructure/country.interface';
@@ -93,7 +94,14 @@ export class ViewstudentComponent implements OnInit {
       });
     }
   }
-
+  studentForm = new FormGroup({
+    studentName: new FormControl(),
+    studentEmail: new FormControl(),
+    studentContact: new FormControl(),
+    genderId: new FormControl(),
+    departmentId: new FormControl(),
+    countryId: new FormControl(),
+  })
   UpdateStudent(): void {
 
     this.studentservice

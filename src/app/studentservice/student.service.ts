@@ -83,7 +83,7 @@ export class StudentService {
   //Fetch data all Department from data base
   getAllDepartment():Observable<Department[]>
   {
-    return this.httpClient.get<Department[]>(this.BaseUrl + '/Department/GetListDepartment')
+    return this.httpClient.get<Department[]>(this.BaseUrl + '/Departments/GetListDepartment')
   }
 
   //Fetch data all Country from data base

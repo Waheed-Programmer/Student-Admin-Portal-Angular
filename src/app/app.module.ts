@@ -15,10 +15,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSortModule} from '@angular/material/sort';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { ViewstudentComponent } from './student/viewstudent/viewstudent.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -44,9 +45,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSortModule,
     FormsModule,
     MatSelectModule,
-    MatSnackBarModule
-
-
+    MatSnackBarModule,
+    ReactiveFormsModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
