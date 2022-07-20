@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Country } from 'src/app/Infrastructure/country.interface';
+import { Department } from 'src/app/Infrastructure/department.interface';
 import { Gender } from 'src/app/Infrastructure/gender.interface';
 import { student } from 'src/app/Infrastructure/student.interface';
 import { StudentService } from 'src/app/studentservice/student.service';
@@ -13,25 +15,33 @@ import { StudentService } from 'src/app/studentservice/student.service';
 export class ViewstudentComponent implements OnInit {
 
   genderList: Gender[] = [];
+  departmentList: Department[] = [];
+  countryList: Country[] = [];
   stage: string | null | undefined;
   studentData: student = {
     studentId: 0,
     studentName: '',
     studentEmail: '',
     studentContact: '',
-    profileImg: '',
+
     genderId: 0,
-    addressId: 0,
-    address: {
-      addressId: 0,
-      physicalAddress: '',
-      postalAddress: '',
-    },
     gender: {
       genderId: 0,
-      genderName: '',
-      genderDesc: '',
+      genderName: ''
     },
+
+    countryId: 0,
+    country: {
+    countryId: 0,
+    countryName: ''
+    },
+
+    departmentId: 0,
+    department : {
+      departmentId: 0,
+      departmentName: ''
+    },
+
   };
   isNew = false;
   headerLabel = '';
@@ -48,6 +58,18 @@ export class ViewstudentComponent implements OnInit {
     this.studentservice.getAllGender().subscribe((loadGender) => {
       debugger;
       this.genderList = loadGender;
+    });
+
+     //Load list of Department through this line of code
+    this.studentservice.getAllDepartment().subscribe((loadDepartment) => {
+      debugger;
+      this.departmentList = loadDepartment;
+    });
+
+     //Load list of Counrty through this line of code
+    this.studentservice.getAllCountry().subscribe((loadCountry) => {
+      debugger;
+      this.countryList = loadCountry;
     });
 
     this.route.paramMap.subscribe((params) => {
