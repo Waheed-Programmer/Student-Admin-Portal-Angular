@@ -11,6 +11,7 @@ export interface student{
   studentEmail: string,
   studentContact: string,
   genderId: number,
+  date:any,
   gender: Gender
   departmentId: number,
   department: Department,

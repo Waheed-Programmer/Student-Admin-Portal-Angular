@@ -1,74 +1,144 @@
 <div class="container">
   <div class="row text-end">
-
-    <div class="col-xl-12 mt-3 ">
-      <a
-      routerLink="/student" type="button" class="btn btn-primary">
-      Go Back</a>
-
+    <div class="col-xl-12 mt-3">
+      <a routerLink="/student" type="button" class="btn btn-primary">
+        Go Back</a
+      >
     </div>
   </div>
-  <div class="row"> <h1>{{headerLabel}}</h1></div>
-    <div class="row">
-      <div class="col-xs-6">
-        <form [formGroup]="studentForm" (ngSubmit)="AddStudent()">
+  <div class="row">
+    <h1>{{ headerLabel }}</h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 mt-2 mb-2">
+      <form [formGroup]="studentForm" (ngSubmit)="AddStudent()">
         <div class="row">
           <div class="col-xs-12 mt-4">
-            <input type="text" class="form-control" placeholder="Student name" formControlName="studentName"><br>
-
-
+            <label>Student Name:</label>&nbsp;
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Student name"
+              formControlName="studentName"
+            />
+            <span *ngIf="studentName && studentName.invalid"
+              >Name input field is invalid</span
+            >
           </div>
+          <br />
         </div>
         <div class="row">
-          <div class="col-xs-6 ">
-            <input type="text" class="form-control" placeholder="Student email" formControlName="studentEmail"><br>
-
-
+          <div class="col-xs-6 mt-2 mb-2">
+            <label>Student Email:</label>&nbsp;
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Student email"
+              formControlName="studentEmail"
+            />
+            <span *ngIf="studentEmail && studentEmail.invalid"
+              >Email input field is invalid</span
+            >
           </div>
-          <div class="col-xs-6">
-
-            <input type="text" class="form-control" placeholder="Student contact" formControlName="studentContact"><br>
-
+          <br />
+          <div class="col-xs-6 mt-2 mb-2">
+            <label>Student Contact:</label>&nbsp;
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Student contact"
+              formControlName="studentContact"
+            />
+            <span *ngIf="studentContact && studentContact.invalid"
+              >Contact input field is invalid</span
+            >
           </div>
+          <br />
         </div>
         <div class="row">
-          <div class="col-xs-6 ">
-            <ng-select>
-              <ng-option value="">Select Department</ng-option>
-              <ng-option *ngFor="let item of departmentList" value="{{item.departmentId}}">{{item.departmentName}}</ng-option>
+          <div class="col-xs-6 mt-2 mb-2">
+            <label>Student Department:</label>&nbsp;
+            <ng-select
+              style="font-family: roboto"
+              placeholder="Select your choice..."
+              [multiple]="false"
+              formControlName="departmentId"
+            >
+              <ng-option
+                *ngFor="let item of departmentList"
+                value="{{ item.departmentId }}"
+                >{{ item.departmentName }}</ng-option
+              >
             </ng-select>
-            <br>
+            <span *ngIf="departmentId && departmentId.invalid"
+              >Please Select Department</span
+            >
+
+            <br />
+          </div>
+
+          <div class="col-xs-6 mt-2 mb-2">
+            <label>Date Select:</label>&nbsp;
+            <input class="form-control" type="date" formControlName="date" />
+            <span *ngIf="date && date.invalid">Please Select Date</span>
 
           </div>
-          <div class="col-xs-6">
-
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-            <label class="form-check-label" for="inlineCheckbox1">1</label><br><br>
-
+          <div class="col-xs-6 mt-2 mb-2">
+            <label>Country:</label>&nbsp;
+            <div class="form-check-inline" *ngFor="let option of countryList">
+              <label>
+                <input
+                  type="checkbox"
+                  name="option.isChecked"
+                  value="{{ option.countryId }}"
+                  formControlName="countryId"
+                />
+                {{ option.countryName }}
+              </label>
+            </div><br />
+            <span *ngIf="countryId && countryId.invalid">Please Select Country</span>
+            <br />
           </div>
-          <div class="col-xs-6">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">1</label><br><br>
+          <div class="col-xs-6 mt-2 mb-2">
+            <label>Genders:</label>&nbsp;
+            <div class="form-check-inline" *ngFor="let option of genderList">
+              <label>
+                <input
+                  type="radio"
+                  name="option.isChecked"
+                  value="{{ option.genderId }}"
+                  formControlName="genderId"
+                />
+                {{ option.genderName }}
+              </label>
+            </div>
+            <br />
+            <span *ngIf="genderId && genderId.invalid">Please Select Gender</span>
 
-
+            <br />
           </div>
-          <div class="col-xs-6" *ngIf="!isNew">
-            <button (click)="UpdateStudent()" class="mb-3" class="btn btn-info mb-3" >Submit</button>&nbsp;
-            <button (click)="DeleteStudent()" class="btn btn-danger mb-3" >Delete</button>
+          <div class="col-xs-6 mt-2 mb-2" *ngIf="!isNew">
+            <button
+              (click)="UpdateStudent()"
+              class="mb-3"
+              class="btn btn-success mb-3"
+            >
+              Submit</button
+            >&nbsp;
+            <button (click)="DeleteStudent()" class="btn btn-danger mb-3">
+              Delete
+            </button>
           </div>
           <div class="col-xs-6" *ngIf="isNew">
-            <button (click)="AddStudent()" class="btn btn-primary mb-3" >Add Student</button>
-
+            <button (click)="AddStudent()" class="btn btn-primary mb-3">
+              Add Student
+            </button>
           </div>
         </div>
       </form>
-      </div>
-      <div class="col-xs-6">
-        <!-- Display Image -->
-      </div>
-
     </div>
-
-
-
+    <div class="col-xs-6">
+      <!-- Display Image -->
+    </div>
+  </div>
 </div>

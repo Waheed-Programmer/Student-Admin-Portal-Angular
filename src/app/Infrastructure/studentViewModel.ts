@@ -5,6 +5,7 @@ export interface StudentViewModel{
   studentName:string,
   studentEmail: string,
   studentContact: string,
+  date:string,
   genderId: number,
   genderName: string,
   departmentId: number,

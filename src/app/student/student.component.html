@@ -20,6 +20,7 @@
         <th class="text-white">Gender</th>
         <th class="text-white">Department</th>
         <th class="text-white">Country</th>
+        <th class="text-white">Date</th>
         <th class="text-white">Actions</th>
 
       </tr>
@@ -33,6 +34,7 @@
         <th>{{item.gender.genderName}}</th>
         <th>{{item.department.departmentName}}</th>
         <th>{{item.country.countryName}}</th>
+        <th>{{item.date}}</th>
         <th>
           <a class="btn btn-primary me-2"
           [routerLink]="['/student',item.studentId]"

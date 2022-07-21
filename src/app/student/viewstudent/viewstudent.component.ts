@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from 'src/app/Infrastructure/country.interface';
@@ -24,7 +24,7 @@ export class ViewstudentComponent implements OnInit {
     studentName: '',
     studentEmail: '',
     studentContact: '',
-
+    date:'',
     genderId: 0,
     gender: {
       genderId: 0,
@@ -49,7 +49,7 @@ export class ViewstudentComponent implements OnInit {
   constructor(
     private studentservice: StudentService,
     private route: ActivatedRoute,
-
+    private fb: FormBuilder,
     private router: Router
   ) {}
 
@@ -94,14 +94,38 @@ export class ViewstudentComponent implements OnInit {
       });
     }
   }
-  studentForm = new FormGroup({
-    studentName: new FormControl(),
-    studentEmail: new FormControl(),
-    studentContact: new FormControl(),
-    genderId: new FormControl(),
-    departmentId: new FormControl(),
-    countryId: new FormControl(),
+  studentForm = this.fb.group({
+    studentName: ['',Validators.required],
+    studentEmail: ['',Validators.required],
+    studentContact: ['',Validators.required],
+    genderId: ['',Validators.required],
+    departmentId: ['',Validators.required],
+    countryId: ['',Validators.required],
+    date: ['',Validators.required]
   })
+
+  get date(){
+    return this.studentForm.get('date');
+  }
+  get studentName(){
+    return this.studentForm.get('studentName');
+  }
+  get studentEmail(){
+    return this.studentForm.get('studentEmail');
+  }
+  get studentContact(){
+    return this.studentForm.get('studentContact');
+  }
+  get departmentId(){
+    return this.studentForm.get('departmentId');
+  }
+  get countryId(){
+    return this.studentForm.get('countryId');
+  }get genderId(){
+    return this.studentForm.get('genderId');
+  }
+
+
   UpdateStudent(): void {
 
     this.studentservice
@@ -129,7 +153,7 @@ export class ViewstudentComponent implements OnInit {
   AddStudent():void{
     debugger
     this.studentservice
-      .insertStudent(this.studentData)
+      .insertStudent(this.studentForm.value)
       .subscribe(
         (response) => {
           let s = response;
