@@ -21,6 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NgSelectModule } from '@ng-select/ng-select';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,9 +48,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatSelectModule,
     MatSnackBarModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {DataTableDirective: any }

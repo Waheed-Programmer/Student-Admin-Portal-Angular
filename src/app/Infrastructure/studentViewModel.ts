@@ -7,11 +7,9 @@ export interface StudentViewModel{
   studentContact: string,
   date:string,
   genderId: number,
-  genderName: string,
   departmentId: number,
-  departmentName: string,
   countryId: number,
-  countryName: string
+
 
 
 }

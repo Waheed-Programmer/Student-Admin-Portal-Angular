@@ -16,5 +16,5 @@ export interface student{
   departmentId: number,
   department: Department,
   countryId: number,
-  country: Country,
+  country: Country
 }

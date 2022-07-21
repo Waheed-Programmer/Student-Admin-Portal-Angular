@@ -20,6 +20,7 @@
               class="form-control"
               placeholder="Student name"
               formControlName="studentName"
+              name="student Name"
             />
             <span *ngIf="studentName && studentName.invalid"
               >Name input field is invalid</span
@@ -35,6 +36,8 @@
               class="form-control"
               placeholder="Student email"
               formControlName="studentEmail"
+              name="student email"
+
             />
             <span *ngIf="studentEmail && studentEmail.invalid"
               >Email input field is invalid</span
@@ -48,6 +51,8 @@
               class="form-control"
               placeholder="Student contact"
               formControlName="studentContact"
+              name="student contact"
+
             />
             <span *ngIf="studentContact && studentContact.invalid"
               >Contact input field is invalid</span
@@ -63,6 +68,8 @@
               placeholder="Select your choice..."
               [multiple]="false"
               formControlName="departmentId"
+              name="departmentId"
+
             >
               <ng-option
                 *ngFor="let item of departmentList"
@@ -73,13 +80,13 @@
             <span *ngIf="departmentId && departmentId.invalid"
               >Please Select Department</span
             >
-
             <br />
           </div>
 
           <div class="col-xs-6 mt-2 mb-2">
             <label>Date Select:</label>&nbsp;
-            <input class="form-control" type="date" formControlName="date" />
+            <input class="form-control" type="date" name="date"
+            formControlName="date" />
             <span *ngIf="date && date.invalid">Please Select Date</span>
 
           </div>
@@ -89,9 +96,9 @@
               <label>
                 <input
                   type="checkbox"
-                  name="option.isChecked"
                   value="{{ option.countryId }}"
                   formControlName="countryId"
+                  name="countryId"
                 />
                 {{ option.countryName }}
               </label>
@@ -108,6 +115,7 @@
                   name="option.isChecked"
                   value="{{ option.genderId }}"
                   formControlName="genderId"
+                  name="genderId"
                 />
                 {{ option.genderName }}
               </label>
@@ -130,7 +138,7 @@
             </button>
           </div>
           <div class="col-xs-6" *ngIf="isNew">
-            <button (click)="AddStudent()" class="btn btn-primary mb-3">
+            <button class="btn btn-primary mb-3">
               Add Student
             </button>
           </div>

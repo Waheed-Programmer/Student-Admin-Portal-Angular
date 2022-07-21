@@ -31,11 +31,11 @@ export class StudentService {
       studentContact: studentmodel.studentContact,
       date: studentmodel.date,
       genderId: studentmodel.genderId,
-      genderName: studentmodel.gender.genderName,
+
       departmentId:studentmodel.department.departmentId,
-      departmentName:studentmodel.department.departmentName,
+
       countryId: studentmodel.country.countryId,
-      countryName:studentmodel.country.countryName,
+
       studentId: studentmodel.studentId,
 
     }
@@ -52,11 +52,11 @@ export class StudentService {
       studentContact: studentmodel.studentContact,
       date: studentmodel.date,
       genderId: studentmodel.genderId,
-      genderName: studentmodel.gender.genderName,
-      departmentId:studentmodel.department.departmentId,
-      departmentName:studentmodel.department.departmentName,
-      countryId: studentmodel.country.countryId,
-      countryName:studentmodel.country.countryName,
+
+      departmentId:studentmodel.departmentId,
+
+      countryId: studentmodel.countryId,
+
       studentId: 0,
 
     }

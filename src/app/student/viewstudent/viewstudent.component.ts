@@ -152,6 +152,7 @@ export class ViewstudentComponent implements OnInit {
 
   AddStudent():void{
     debugger
+    if(this.studentForm.valid){
     this.studentservice
       .insertStudent(this.studentForm.value)
       .subscribe(
@@ -161,4 +162,5 @@ export class ViewstudentComponent implements OnInit {
         }
       );
   }
+}
 }
