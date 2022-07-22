@@ -10,18 +10,18 @@
   [(ngModel)]="FilterText"
   (keyup)="FilterStudent()"
   placeholder="Search Here" class="end-xs input mt-3 mb-3"/> -->
-  <table id="table_id" class="table table-reponsive">
-    <thead class="bg-dark">
+  <table id="table_id" class="table table-reponsive table-striped table-border" datatable [dtOptions]="dtOptions">
+    <thead class="">
       <tr>
-        <th class="text-white">#</th>
-        <th class="text-white">Name</th>
-        <th class="text-white">Email</th>
-        <th class="text-white">Contact</th>
-        <th class="text-white">Gender</th>
-        <th class="text-white">Department</th>
-        <th class="text-white">Country</th>
-        <th class="text-white">Date</th>
-        <th class="text-white">Actions</th>
+        <th class="">#</th>
+        <th class="">Name</th>
+        <th class="">Email</th>
+        <th class="">Contact</th>
+        <th class="">Gender</th>
+        <th class="">Department</th>
+        <th class="">Country</th>
+        <th class="">Date</th>
+        <th class="">Actions</th>
 
       </tr>
     </thead>

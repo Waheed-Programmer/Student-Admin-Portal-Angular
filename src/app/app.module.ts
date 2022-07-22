@@ -20,6 +20,7 @@ import { ViewstudentComponent } from './student/viewstudent/viewstudent.componen
 import { MatSelectModule } from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatSnackBarModule,
     ReactiveFormsModule,
     NgSelectModule,
+    DataTablesModule
 
   ],
   providers: [],

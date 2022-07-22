@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {  FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from 'src/app/Infrastructure/country.interface';
@@ -20,31 +20,7 @@ export class ViewstudentComponent implements OnInit {
   departmentList: Department[] = [];
   countryList: Country[] = [];
   stage: string | null | undefined;
-  // studentData: student = {
-  //   studentId: 0,
-  //   studentName: '',
-  //   studentEmail: '',
-  //   studentContact: '',
-  //   date:'',
-  //   genderId: 0,
-  //   gender: {
-  //     genderId: 0,
-  //     genderName: ''
-  //   },
 
-  //   countryId: 0,
-  //   country: {
-  //   countryId: 0,
-  //   countryName: ''
-  //   },
-
-  //   departmentId: 0,
-  //   department : {
-  //     departmentId: 0,
-  //     departmentName: ''
-  //   },
-
-  // };
   isNew = false;
   headerLabel = '';
 
@@ -105,7 +81,7 @@ export class ViewstudentComponent implements OnInit {
     studentContact: ['',Validators.required],
     genderId: ['',Validators.required],
     departmentId: ['',Validators.required],
-    countryId: ['',Validators.required],
+    countryId: this.fb.array([]),
     date: ['',Validators.required]
   })
 
@@ -129,6 +105,7 @@ export class ViewstudentComponent implements OnInit {
   }get genderId(){
     return this.studentForm.get('genderId');
   }
+
 
 
   UpdateStudent(stu: Student): void {

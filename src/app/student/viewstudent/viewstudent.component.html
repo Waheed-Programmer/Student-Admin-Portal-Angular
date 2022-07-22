@@ -95,12 +95,14 @@
             <div class="form-check-inline" *ngFor="let option of countryList; let i=index">
               <label>
                 <input
-                id="inlineCheckbox{{i}}"
+
+                  [id]="i"
                   type="checkbox"
+                  [value]="option.countryId"
                   formControlName="countryId"
                   name="countryId"
                 />
-                <label class="form-check-label" for="inlineCheckbox{{i}}">{{ option.countryName }}</label>
+                <label class="form-check-label">{{ option.countryName }}</label>
               </label>
             </div><br />
             <span *ngIf="countryId && countryId.invalid">Please Select Country</span>
@@ -122,17 +124,11 @@
             </div>
             <br />
             <span *ngIf="genderId && genderId.invalid">Please Select Gender</span>
-
             <br />
           </div>
           <div class="col-xs-6 mt-2 mb-2" *ngIf="!isNew">
-            <button
-
-              class="mb-3"
-              class="btn btn-success mb-3"
-            >
-              Submit</button
-            >&nbsp;
+            <button class="btn btn-success mb-3">
+              Submit</button>&nbsp;
             <button  class="btn btn-danger mb-3">
               Delete
             </button>
