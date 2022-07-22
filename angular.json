@@ -34,7 +34,7 @@
 
             ],
             "scripts": [
-              "./node_module/jquery/dist/jquery.js",
+
 
               "./node_modules/bootstrap/dist/js/bootstrap.js"
 
@@ -111,7 +111,7 @@
 
             ],
             "scripts": [
-              "./node_module/jquery/dist/jquery.js"
+
 
             ]
           }

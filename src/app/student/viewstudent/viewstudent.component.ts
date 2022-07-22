@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from 'src/app/Infrastructure/country.interface';
 import { Department } from 'src/app/Infrastructure/department.interface';
 import { Gender } from 'src/app/Infrastructure/gender.interface';
+import { Student } from 'src/app/Infrastructure/student';
 import { student } from 'src/app/Infrastructure/student.interface';
 import { StudentService } from 'src/app/studentservice/student.service';
 
@@ -19,33 +20,35 @@ export class ViewstudentComponent implements OnInit {
   departmentList: Department[] = [];
   countryList: Country[] = [];
   stage: string | null | undefined;
-  studentData: student = {
-    studentId: 0,
-    studentName: '',
-    studentEmail: '',
-    studentContact: '',
-    date:'',
-    genderId: 0,
-    gender: {
-      genderId: 0,
-      genderName: ''
-    },
+  // studentData: student = {
+  //   studentId: 0,
+  //   studentName: '',
+  //   studentEmail: '',
+  //   studentContact: '',
+  //   date:'',
+  //   genderId: 0,
+  //   gender: {
+  //     genderId: 0,
+  //     genderName: ''
+  //   },
 
-    countryId: 0,
-    country: {
-    countryId: 0,
-    countryName: ''
-    },
+  //   countryId: 0,
+  //   country: {
+  //   countryId: 0,
+  //   countryName: ''
+  //   },
 
-    departmentId: 0,
-    department : {
-      departmentId: 0,
-      departmentName: ''
-    },
+  //   departmentId: 0,
+  //   department : {
+  //     departmentId: 0,
+  //     departmentName: ''
+  //   },
 
-  };
+  // };
   isNew = false;
   headerLabel = '';
+
+  studentObj:Student = new Student()
   constructor(
     private studentservice: StudentService,
     private route: ActivatedRoute,
@@ -89,12 +92,14 @@ export class ViewstudentComponent implements OnInit {
 
         }
       }
+      debugger
       this.studentservice.getStudent(this.stage).subscribe((data) => {
-        this.studentData = data;
+        this.studentObj = data;
       });
     }
   }
   studentForm = this.fb.group({
+    studentId: [''],
     studentName: ['',Validators.required],
     studentEmail: ['',Validators.required],
     studentContact: ['',Validators.required],
@@ -126,35 +131,49 @@ export class ViewstudentComponent implements OnInit {
   }
 
 
-  UpdateStudent(): void {
+  UpdateStudent(stu: Student): void {
+    this.studentForm.controls['studentId'].setValue(stu.studentId);
+    this.studentForm.controls['studentName'].setValue(stu.studentName);
+    this.studentForm.controls['studentEmail'].setValue(stu.studentEmail);
+    this.studentForm.controls['studentContact'].setValue(stu.studentContact);
+    this.studentForm.controls['genderId'].setValue(stu.genderId);
+    this.studentForm.controls['departmentId'].setValue(stu.departmentId);
+    this.studentForm.controls['date'].setValue(stu.date);
 
-    this.studentservice
-      .updateStudent(this.studentData.studentId, this.studentData)
-      .subscribe(
-        (response) => {
-          debugger
-          let s = response;
-          this.router.navigate(['/student'])
-        }
-      );
+    // this.studentservice
+    //   .updateStudent(this.studentData.studentId, this.studentData)
+    //   .subscribe(
+    //     (response) => {
+    //       debugger
+    //       let s = response;
+    //       this.router.navigate(['/student'])
+    //     }
+    //   );
   }
 
-  DeleteStudent():void{
-    this.studentservice
-    .deleteStudent(this.studentData.studentId)
-    .subscribe(
-      (response) => {
-        let s = response;
-        this.router.navigate(['/student'])
-      }
-    );
-  }
+  // DeleteStudent():void{
+  //   this.studentservice
+  //   .deleteStudent(this.studentData.studentId)
+  //   .subscribe(
+  //     (response) => {
+  //       let s = response;
+  //       this.router.navigate(['/student'])
+  //     }
+  //   );
+  // }
 
   AddStudent():void{
+    this.studentObj.studentId = this.studentForm.value.studentId;
+    this.studentObj.studentName = this.studentForm.value.studentName;
+    this.studentObj.studentEmail = this.studentForm.value.studentEmail;
+    this.studentObj.studentContact = this.studentForm.value.studentContact;
+    this.studentObj.genderId = this.studentForm.value.genderId;
+    this.studentObj.departmentId = this.studentForm.value.departmentId;
+    this.studentObj.date = this.studentForm.value.date;
     debugger
     if(this.studentForm.valid){
     this.studentservice
-      .insertStudent(this.studentForm.value)
+      .insertStudent(this.studentObj)
       .subscribe(
         (response) => {
           let s = response;

@@ -25,5 +25,7 @@ export class StudentComponent implements OnInit {
       this.getstudents = studentData;
 
     });
+
+
   }
 }

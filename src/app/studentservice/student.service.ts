@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Country } from '../Infrastructure/country.interface';
 import { Department } from '../Infrastructure/department.interface';
 import { Gender } from '../Infrastructure/gender.interface';
+import { Student } from '../Infrastructure/student';
 import { student } from '../Infrastructure/student.interface';
 import { StudentViewModel } from '../Infrastructure/studentViewModel';
 
@@ -44,23 +45,23 @@ export class StudentService {
 
   //Add new student
 
-  insertStudent(studentmodel:student):Observable<student>{
+  insertStudent(studentmodel:Student):Observable<Student>{
     debugger
-    const ViewModel:StudentViewModel={
-      studentName: studentmodel.studentName,
-      studentEmail: studentmodel.studentEmail,
-      studentContact: studentmodel.studentContact,
-      date: studentmodel.date,
-      genderId: studentmodel.genderId,
+    // const ViewModel:StudentViewModel={
+    //   studentName: studentmodel.studentName,
+    //   studentEmail: studentmodel.studentEmail,
+    //   studentContact: studentmodel.studentContact,
+    //   date: studentmodel.date,
+    //   genderId: studentmodel.genderId,
 
-      departmentId:studentmodel.departmentId,
+    //   departmentId:studentmodel.departmentId,
 
-      countryId: studentmodel.countryId,
+    //   countryId: studentmodel.countryId,
 
-      studentId: 0,
+    //   studentId: 0,
 
-    }
-    return this.httpClient.post<student>(this.BaseUrl + '/Student/addStudent/',ViewModel)
+    // }
+    return this.httpClient.post<Student>(this.BaseUrl + '/Student/addStudent',studentmodel)
 
 
 
