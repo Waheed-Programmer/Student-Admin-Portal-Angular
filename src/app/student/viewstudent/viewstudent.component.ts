@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {  FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from 'src/app/Infrastructure/country.interface';
 import { Department } from 'src/app/Infrastructure/department.interface';
 import { Gender } from 'src/app/Infrastructure/gender.interface';
 import { Student } from 'src/app/Infrastructure/student';
-import { student } from 'src/app/Infrastructure/student.interface';
 import { StudentService } from 'src/app/studentservice/student.service';
 
 @Component({
@@ -15,7 +20,6 @@ import { StudentService } from 'src/app/studentservice/student.service';
   styleUrls: ['./viewstudent.component.css'],
 })
 export class ViewstudentComponent implements OnInit {
-
   genderList: Gender[] = [];
   departmentList: Department[] = [];
   countryList: Country[] = [];
@@ -24,7 +28,7 @@ export class ViewstudentComponent implements OnInit {
   isNew = false;
   headerLabel = '';
 
-  studentObj:Student = new Student()
+  studentObj: Student = new Student();
 
   constructor(
     private studentservice: StudentService,
@@ -39,80 +43,73 @@ export class ViewstudentComponent implements OnInit {
     this.studentservice.getAllGender().subscribe((loadGender) => {
       debugger;
       this.genderList = loadGender;
-
     });
 
-     //Load list of Department through this line of code
+    //Load list of Department through this line of code
     this.studentservice.getAllDepartment().subscribe((loadDepartment) => {
       debugger;
       this.departmentList = loadDepartment;
     });
 
-     //Load list of Counrty through this line of code
+    //Load list of Counrty through this line of code
     this.studentservice.getAllCountry().subscribe((loadCountry) => {
       debugger;
       this.countryList = loadCountry;
       this._patchValues();
-
     });
 
     this.route.paramMap.subscribe((params) => {
       this.stage = params.get('id');
     });
     if (this.stage) {
-      if(this.stage){
-        debugger
-        if(this.stage.toLowerCase()=="Add".toLocaleLowerCase()){
+      if (this.stage) {
+        debugger;
+        if (this.stage.toLowerCase() == 'Add'.toLocaleLowerCase()) {
           this.isNew = true;
-          this.headerLabel = "Add Student"
-        }
-        else{
-          this.isNew= false;
-          this.headerLabel = "Update Student"
-
+          this.headerLabel = 'Add Student';
+        } else {
+          this.isNew = false;
+          this.headerLabel = 'Update Student';
         }
       }
-      debugger
+      debugger;
       this.studentservice.getStudent(this.stage).subscribe((data) => {
         this.studentObj = data;
       });
     }
-
   }
   studentForm = this.fb.group({
     studentId: [''],
-    studentName: ['',Validators.required],
-    studentEmail: ['',Validators.required],
-    studentContact: ['',Validators.required],
-    genderId: ['',Validators.required],
-    departmentId: ['',Validators.required],
+    studentName: ['', Validators.required],
+    studentEmail: ['', Validators.required],
+    studentContact: ['', Validators.required],
+    genderId: ['', Validators.required],
+    departmentId: ['', Validators.required],
     countryId: new FormArray([]),
-    date: ['',Validators.required]
-  })
+    date: ['', Validators.required],
+  });
 
-  get date(){
+  get date() {
     return this.studentForm.get('date');
   }
-  get studentName(){
+  get studentName() {
     return this.studentForm.get('studentName');
   }
-  get studentEmail(){
+  get studentEmail() {
     return this.studentForm.get('studentEmail');
   }
-  get studentContact(){
+  get studentContact() {
     return this.studentForm.get('studentContact');
   }
-  get departmentId(){
+  get departmentId() {
     return this.studentForm.get('departmentId');
   }
-  get countryId(){
+  get countryId() {
     return this.studentForm.get('countryId') as FormArray;
   }
-  get genderId(){
+  get genderId() {
     return this.studentForm.get('genderId');
   }
-
-
 
   UpdateStudent(stu: Student): void {
     this.studentForm.controls['studentId'].setValue(stu.studentId);
@@ -154,32 +151,34 @@ export class ViewstudentComponent implements OnInit {
       this.countryId.push(
         // here the new FormControl with item value from RADIO_LIST_FROM_DATABASE
         new FormGroup({
+          countryId: new FormControl(country.countryId),
           countryName: new FormControl(country.countryName),
-          checked: new FormControl(false)
+          checked: new FormControl(false),
         })
       );
     });
   }
 
-  AddStudent():void{
+  AddStudent(): void {
     this.studentObj.studentId = this.studentForm.value.studentId;
     this.studentObj.studentName = this.studentForm.value.studentName;
     this.studentObj.studentEmail = this.studentForm.value.studentEmail;
     this.studentObj.studentContact = this.studentForm.value.studentContact;
     this.studentObj.genderId = this.studentForm.value.genderId;
     this.studentObj.departmentId = this.studentForm.value.departmentId;
-    this.studentObj.countryId = this.studentForm.value('countryId').filter().join(',');
+    this.studentObj.countryId = this.studentForm.value.countryId
+      .filter((y: any) => y.checked)
+      .map((x: any) => x.countryId)
+      .join(',');
     this.studentObj.date = this.studentForm.value.date;
-    debugger
-    if(this.studentForm.valid){
-    this.studentservice
-      .insertStudent(this.studentObj)
-      .subscribe(
-        (response) => {
+    debugger;
+    if (this.studentForm.valid) {
+      this.studentservice
+        .insertStudent(this.studentObj)
+        .subscribe((response) => {
           let s = response;
-          this.router.navigate(['/student'])
-        }
-      );
+          this.router.navigate(['/student']);
+        });
+    }
   }
-}
 }

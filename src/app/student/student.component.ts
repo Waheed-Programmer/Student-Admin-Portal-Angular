@@ -3,7 +3,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subject } from 'rxjs';
+import { Student } from '../Infrastructure/student';
 import { student } from '../Infrastructure/student.interface';
+
 import { StudentService } from '../studentservice/student.service';
 
 

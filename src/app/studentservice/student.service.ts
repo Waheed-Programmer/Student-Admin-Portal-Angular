@@ -23,24 +23,24 @@ export class StudentService {
   }
 
   //Update student from data base
-  updateStudent(id:number, studentmodel:student):Observable<student>{
+  updateStudent(id:number, studentmodel:Student):Observable<Student>{
     debugger
-    const ViewModel:StudentViewModel={
+    // const ViewModel:StudentViewModel={
 
-      studentName: studentmodel.studentName,
-      studentEmail: studentmodel.studentEmail,
-      studentContact: studentmodel.studentContact,
-      date: studentmodel.date,
-      genderId: studentmodel.genderId,
+    //   studentName: studentmodel.studentName,
+    //   studentEmail: studentmodel.studentEmail,
+    //   studentContact: studentmodel.studentContact,
+    //   date: studentmodel.date,
+    //   genderId: studentmodel.genderId,
 
-      departmentId:studentmodel.department.departmentId,
+    //   departmentId:studentmodel.department.departmentId,
 
-      countryId: studentmodel.country.countryId,
+    //   countryId: studentmodel.country.countryId,
 
-      studentId: studentmodel.studentId,
+    //   studentId: studentmodel.studentId,
 
-    }
-    return this.httpClient.put<student>(this.BaseUrl + '/Student/updateStudent/'+id,ViewModel)
+    // }
+    return this.httpClient.put<Student>(this.BaseUrl + '/Student/updateStudent/'+id,studentmodel)
   }
 
   //Add new student
@@ -67,15 +67,15 @@ export class StudentService {
 
   }
   //Fetch data for single student
-  getStudent(Id:string|number):Observable<student>
+  getStudent(Id:string|number):Observable<Student>
   {
-    return this.httpClient.get<student>(this.BaseUrl + '/Student/GetStudent/'+Id)
+    return this.httpClient.get<Student>(this.BaseUrl + '/Student/GetStudent/'+Id)
   }
 
   //Delete Student data
-  deleteStudent(Id:number):Observable<student>
+  deleteStudent(Id:number):Observable<Student>
   {
-    return this.httpClient.delete<student>(this.BaseUrl + '/Student/deleteStudent/'+Id)
+    return this.httpClient.delete<Student>(this.BaseUrl + '/Student/deleteStudent/'+Id)
   }
   //Fetch data all Gender from data base
   getAllGender():Observable<Gender[]>
