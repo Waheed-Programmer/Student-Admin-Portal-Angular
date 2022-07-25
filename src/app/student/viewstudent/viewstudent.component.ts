@@ -25,6 +25,7 @@ export class ViewstudentComponent implements OnInit {
   headerLabel = '';
 
   studentObj:Student = new Student()
+
   constructor(
     private studentservice: StudentService,
     private route: ActivatedRoute,
@@ -38,6 +39,7 @@ export class ViewstudentComponent implements OnInit {
     this.studentservice.getAllGender().subscribe((loadGender) => {
       debugger;
       this.genderList = loadGender;
+
     });
 
      //Load list of Department through this line of code
@@ -50,6 +52,8 @@ export class ViewstudentComponent implements OnInit {
     this.studentservice.getAllCountry().subscribe((loadCountry) => {
       debugger;
       this.countryList = loadCountry;
+      this._patchValues();
+
     });
 
     this.route.paramMap.subscribe((params) => {
@@ -73,6 +77,7 @@ export class ViewstudentComponent implements OnInit {
         this.studentObj = data;
       });
     }
+
   }
   studentForm = this.fb.group({
     studentId: [''],
@@ -81,7 +86,7 @@ export class ViewstudentComponent implements OnInit {
     studentContact: ['',Validators.required],
     genderId: ['',Validators.required],
     departmentId: ['',Validators.required],
-    countryId: this.fb.array([]),
+    countryId: new FormArray([]),
     date: ['',Validators.required]
   })
 
@@ -101,8 +106,9 @@ export class ViewstudentComponent implements OnInit {
     return this.studentForm.get('departmentId');
   }
   get countryId(){
-    return this.studentForm.get('countryId');
-  }get genderId(){
+    return this.studentForm.get('countryId') as FormArray;
+  }
+  get genderId(){
     return this.studentForm.get('genderId');
   }
 
@@ -139,6 +145,22 @@ export class ViewstudentComponent implements OnInit {
   //   );
   // }
 
+  private _patchValues(): void {
+    // get array control
+    const formArray = this.studentForm.get('countryId') as FormArray;
+    // loop for each existing value
+    this.countryList.forEach((country) => {
+      // add new control to FormArray
+      this.countryId.push(
+        // here the new FormControl with item value from RADIO_LIST_FROM_DATABASE
+        new FormGroup({
+          countryName: new FormControl(country.countryName),
+          checked: new FormControl(false)
+        })
+      );
+    });
+  }
+
   AddStudent():void{
     this.studentObj.studentId = this.studentForm.value.studentId;
     this.studentObj.studentName = this.studentForm.value.studentName;
@@ -146,6 +168,7 @@ export class ViewstudentComponent implements OnInit {
     this.studentObj.studentContact = this.studentForm.value.studentContact;
     this.studentObj.genderId = this.studentForm.value.genderId;
     this.studentObj.departmentId = this.studentForm.value.departmentId;
+    this.studentObj.countryId = this.studentForm.value('countryId').filter().join(',');
     this.studentObj.date = this.studentForm.value.date;
     debugger
     if(this.studentForm.valid){

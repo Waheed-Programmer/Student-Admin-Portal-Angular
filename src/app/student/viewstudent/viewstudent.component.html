@@ -90,23 +90,18 @@
             <span *ngIf="date && date.invalid">Please Select Date</span>
 
           </div>
-          <div class="col-xs-6 mt-2 mb-2">
-            <label>Country:</label>&nbsp;
-            <div class="form-check-inline" *ngFor="let option of countryList; let i=index">
-              <label>
-                <input
 
-                  [id]="i"
-                  type="checkbox"
-                  [value]="option.countryId"
-                  formControlName="countryId"
-                  name="countryId"
-                />
-                <label class="form-check-label">{{ option.countryName }}</label>
-              </label>
-            </div><br />
+          <div class="col-xs-6 mt-2">
+            <label>Country:</label>&nbsp;
+            <ul formArrayName="countryId">
+              <li
+                [formGroupName]="i"
+                *ngFor="let item of countryId?.controls; let i = index">
+                <input type="checkbox"  formControlName="checked" /> {{ item.get('countryName')?.value}}
+              </li>
+            </ul>
             <span *ngIf="countryId && countryId.invalid">Please Select Country</span>
-            <br />
+
           </div>
           <div class="col-xs-6 mt-2 mb-2">
             <label>Genders:</label>&nbsp;
