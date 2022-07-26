@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { Student } from '../Infrastructure/student';
 import { student } from '../Infrastructure/student.interface';
@@ -19,8 +20,8 @@ export class StudentComponent implements OnInit {
   getstudents: student[] = [];
   FilterText: string = '';
   dtOptions: DataTables.Settings = {};
-
-  constructor(private studentservice: StudentService) {}
+  studentObj: Student = new Student();
+  constructor(private studentservice: StudentService,  private router: Router) {}
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -35,4 +36,19 @@ export class StudentComponent implements OnInit {
 
 
   }
+
+
+  DeleteStudent(id:number):void{
+    debugger
+    if(window.confirm('Are sure you want to delete this item ?')) {
+    this.studentservice
+    .deleteStudent(this.studentObj.studentId=id)
+    .subscribe(
+      (response) => {
+        let s = response;
+        this.router.navigate(['/student'])
+      }
+    );
+  }
+}
 }

@@ -2,8 +2,7 @@
   <div class="row text-end">
     <div class="col-xl-12 mt-3">
       <a routerLink="/student" type="button" class="btn btn-primary">
-        Go Back</a
-      >
+        Go Back</a>
     </div>
   </div>
   <div class="row">
@@ -22,9 +21,8 @@
               formControlName="studentName"
               name="student Name"
             />
-            <span *ngIf="studentName && studentName.invalid"
-              >Name input field is invalid</span
-            >
+            <span *ngIf="studentName && studentName.invalid">
+              Name input field is invalid</span>
           </div>
           <br />
         </div>
@@ -36,12 +34,9 @@
               class="form-control"
               placeholder="Student email"
               formControlName="studentEmail"
-              name="student email"
-
-            />
+              name="student email"/>
             <span *ngIf="studentEmail && studentEmail.invalid"
-              >Email input field is invalid</span
-            >
+              >Email input field is invalid</span>
           </div>
           <br />
           <div class="col-xs-6 mt-2 mb-2">
@@ -51,12 +46,9 @@
               class="form-control"
               placeholder="Student contact"
               formControlName="studentContact"
-              name="student contact"
-
-            />
+              name="student contact"/>
             <span *ngIf="studentContact && studentContact.invalid"
-              >Contact input field is invalid</span
-            >
+              >Contact input field is invalid</span>
           </div>
           <br />
         </div>
@@ -64,22 +56,17 @@
           <div class="col-xs-6 mt-2 mb-2">
             <label>Student Department:</label>&nbsp;
             <ng-select
-              style="font-family: roboto"
+
               placeholder="Select your choice..."
               [multiple]="false"
               formControlName="departmentId"
-              name="departmentId"
-
-            >
+              name="departmentId">
               <ng-option
                 *ngFor="let item of departmentList"
-                value="{{ item.departmentId }}"
-                >{{ item.departmentName }}</ng-option
-              >
+                value="{{ item.departmentId }}">{{ item.departmentName }}</ng-option>
             </ng-select>
             <span *ngIf="departmentId && departmentId.invalid"
-              >Please Select Department</span
-            >
+              >Please Select Department</span>
             <br />
           </div>
 
@@ -112,8 +99,7 @@
                   name="option.isChecked"
                   value="{{ option.genderId }}"
                   formControlName="genderId"
-                  name="genderId"
-                />
+                  name="genderId"/>
                 {{ option.genderName }}
               </label>
             </div>
@@ -122,11 +108,9 @@
             <br />
           </div>
           <div class="col-xs-6 mt-2 mb-2" *ngIf="!isNew">
-            <button class="btn btn-success mb-3">
-              Submit</button>&nbsp;
-            <button  class="btn btn-danger mb-3">
-              Delete
-            </button>
+            <button  class="btn btn-success mb-3">
+              Update</button>
+
           </div>
           <div class="col-xs-6" *ngIf="isNew">
             <button class="btn btn-primary mb-3" [disabled]="studentForm.invalid">

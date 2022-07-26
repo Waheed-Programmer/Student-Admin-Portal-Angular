@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormArray,FormBuilder,FormControl,FormGroup,Validators,} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from 'src/app/Infrastructure/country.interface';
 import { Department } from 'src/app/Infrastructure/department.interface';
@@ -131,16 +124,7 @@ export class ViewstudentComponent implements OnInit {
     //   );
   }
 
-  // DeleteStudent():void{
-  //   this.studentservice
-  //   .deleteStudent(this.studentData.studentId)
-  //   .subscribe(
-  //     (response) => {
-  //       let s = response;
-  //       this.router.navigate(['/student'])
-  //     }
-  //   );
-  // }
+
 
   private _patchValues(): void {
     // get array control

@@ -8,8 +8,5 @@ export interface StudentViewModel{
   date:string,
   genderId: number,
   departmentId: number,
-  countryId: number,
-
-
-
+  countryId: number
 }
