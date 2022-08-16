@@ -1,9 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 import { Student } from '../Infrastructure/student';
 import { student } from '../Infrastructure/student.interface';
 
@@ -18,7 +14,6 @@ import { StudentService } from '../studentservice/student.service';
 export class StudentComponent implements OnInit {
 
   getstudents: student[] = [];
-  FilterText: string = '';
   dtOptions: DataTables.Settings = {};
   studentObj: Student = new Student();
   constructor(private studentservice: StudentService,  private router: Router) {}
