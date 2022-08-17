@@ -12,7 +12,7 @@ import { StudentService } from '../studentservice/student.service';
   styleUrls: ['./student.component.css'],
 })
 export class StudentComponent implements OnInit {
-
+  ShowEditMode : boolean = false;
   getstudents: student[] = [];
   dtOptions: DataTables.Settings = {};
   studentObj: Student = new Student();
@@ -30,6 +30,10 @@ export class StudentComponent implements OnInit {
     });
 
 
+  }
+  Edit(id : number) : void
+  {
+    this.router.navigate(['/student/',this.studentObj.studentId=id])
   }
 
 

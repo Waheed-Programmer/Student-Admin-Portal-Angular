@@ -16,11 +16,11 @@ export class ViewstudentComponent implements OnInit {
   genderList: Gender[] = [];
   departmentList: Department[] = [];
   countryList: Country[] = [];
-  stage: string | null | undefined;
+  stage: string = "";
 
   isNew = false;
   headerLabel = '';
-
+  studentId : any;
   studentObj: Student = new Student();
 
   constructor(
@@ -28,9 +28,25 @@ export class ViewstudentComponent implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private router: Router
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      debugger
+      //this.stage =  params.get('id');
+      let studentId = params.get('id')?.toString();
+
+      this.studentservice.getStudent(studentId)
+      .subscribe(
+        (response) => {
+          let data = response; // this.studentForm.controls
+          this.UpdateStudent(data);
+          //this.router.navigate(['/student'])
+        }
+      );
+    });
+
     //Load list of gender through this line of code
 
     this.studentservice.getAllGender().subscribe((loadGender) => {
@@ -51,9 +67,7 @@ export class ViewstudentComponent implements OnInit {
       this._patchValues();
     });
 
-    this.route.paramMap.subscribe((params) => {
-      this.stage = params.get('id');
-    });
+
     if (this.stage) {
       if (this.stage) {
         debugger;
@@ -105,6 +119,7 @@ export class ViewstudentComponent implements OnInit {
   }
 
   UpdateStudent(stu: Student): void {
+    debugger
     this.studentForm.controls['studentId'].setValue(stu.studentId);
     this.studentForm.controls['studentName'].setValue(stu.studentName);
     this.studentForm.controls['studentEmail'].setValue(stu.studentEmail);
@@ -142,6 +157,8 @@ export class ViewstudentComponent implements OnInit {
       );
     });
   }
+
+
 
   AddStudent(): void {
     this.studentObj.studentId = this.studentForm.value.studentId;

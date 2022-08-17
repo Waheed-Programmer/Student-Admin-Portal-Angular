@@ -12,7 +12,7 @@ export interface student{
   studentContact: string,
   genderId: number,
   date:any,
-  gender: Gender
+  gender: Gender,
   departmentId: number,
   department: Department,
   countryId: number,

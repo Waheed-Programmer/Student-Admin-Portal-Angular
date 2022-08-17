@@ -67,7 +67,7 @@ export class StudentService {
 
   }
   //Fetch data for single student
-  getStudent(Id:string|number):Observable<Student>
+  getStudent(Id:any|number):Observable<Student>
   {
     return this.httpClient.get<Student>(this.BaseUrl + '/Student/GetStudent/'+Id)
   }

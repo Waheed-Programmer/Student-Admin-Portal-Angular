@@ -1,4 +1,5 @@
 import { Department } from './department.interface';
+import { Gender } from './gender.interface';
 
 export class Student {
   studentId: number = 0;
