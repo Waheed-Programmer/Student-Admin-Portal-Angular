@@ -21,8 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { DataTablesModule } from 'angular-datatables';
-import { DepartmentComponent } from './department/department.component';
-import { DepartmentFormComponent } from './department-form/department-form.component';
+
 
 
 @NgModule({
@@ -31,8 +30,7 @@ import { DepartmentFormComponent } from './department-form/department-form.compo
     TopNavComponent,
     StudentComponent,
     ViewstudentComponent,
-    DepartmentComponent,
-    DepartmentFormComponent,
+
 
 
 
