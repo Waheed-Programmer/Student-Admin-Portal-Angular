@@ -6,9 +6,10 @@ import { ViewstudentComponent } from './student/viewstudent/viewstudent.componen
 
 const routes: Routes = [
 {
-  path: "",
-  component:StudentComponent
+  path:"",redirectTo:"",pathMatch:"full"
+  // {path:'**',component:PagenotfoundComponent}
 },
+
 {
   path: "student",
   component:StudentComponent

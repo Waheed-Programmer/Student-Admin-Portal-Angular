@@ -25,21 +25,7 @@ export class StudentService {
   //Update student from data base
   updateStudent(id:number, studentmodel:Student):Observable<Student>{
     debugger
-    // const ViewModel:StudentViewModel={
-
-    //   studentName: studentmodel.studentName,
-    //   studentEmail: studentmodel.studentEmail,
-    //   studentContact: studentmodel.studentContact,
-    //   date: studentmodel.date,
-    //   genderId: studentmodel.genderId,
-
-    //   departmentId:studentmodel.department.departmentId,
-
-    //   countryId: studentmodel.country.countryId,
-
-    //   studentId: studentmodel.studentId,
-
-    // }
+    
     return this.httpClient.put<Student>(this.BaseUrl + '/Student/updateStudent/'+id,studentmodel)
   }
 
@@ -47,20 +33,7 @@ export class StudentService {
 
   insertStudent(studentmodel:Student):Observable<Student>{
     debugger
-    // const ViewModel:StudentViewModel={
-    //   studentName: studentmodel.studentName,
-    //   studentEmail: studentmodel.studentEmail,
-    //   studentContact: studentmodel.studentContact,
-    //   date: studentmodel.date,
-    //   genderId: studentmodel.genderId,
-
-    //   departmentId:studentmodel.departmentId,
-
-    //   countryId: studentmodel.countryId,
-
-    //   studentId: 0,
-
-    // }
+    
     return this.httpClient.post<Student>(this.BaseUrl + '/Student/addStudent',studentmodel)
 
 
